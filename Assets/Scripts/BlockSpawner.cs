@@ -21,8 +21,11 @@ namespace DefaultNamespace
             int i = 0;
             foreach (var box in boxesToSpawn)
             {
-                var newBox = Instantiate(box, offset * (i + 1), quaternion.identity, transform);
-                newBox.StartPos = offset * (i + 1);
+                Vector3 pos = offset * (i + 1);
+                pos.y += Settings.instance.cellBlockDragOffset;
+                
+                var newBox = Instantiate(box, pos, quaternion.identity, transform);
+                newBox.StartPos = pos;
                 
                 yield return new WaitForSeconds(spawnDelay);
                 i++;
