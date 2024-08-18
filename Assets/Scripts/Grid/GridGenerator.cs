@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using NaughtyAttributes;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 namespace Grid
