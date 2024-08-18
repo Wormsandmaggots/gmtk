@@ -6,7 +6,7 @@ namespace Blocks
 {
     public class Wall : BoxBase
     {
-        private void Start()
+        protected override void Start()
         {
             id = 1;
         }

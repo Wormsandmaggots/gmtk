@@ -18,7 +18,7 @@ public class ExtrudingBox : BoxBase
     [Dropdown("Directions")]
     [SerializeField] private Vector3 direction;
     
-    private void Start()
+    protected override void Start()
     {
         id = 2;
     }
