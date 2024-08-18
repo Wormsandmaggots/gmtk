@@ -8,19 +8,12 @@ using UnityEngine;
 namespace Grid
 {
     [Serializable]
-    public class BoxType
-    {
-        //[Dropdown("Box types")]
-        public BoxBase BoxObject;
-    }
-    
-    [Serializable]
     public class Line
     {
         [ReorderableList]
-        public List<BoxType> lineContent;
+        public List<Cell> lineContent;
         
-        public BoxType this[int key]
+        public Cell this[int key]
         {
             get => lineContent[key];
         }
@@ -46,10 +39,10 @@ namespace Grid
                 var line = grid[i];
                 for (int j = 0; j < line.Length(); j++)
                 {
-                    if (line[j] == null || line[j].BoxObject == null)
+                    if (line[j] == null)
                         continue;
                     
-                    BoxBase cell = Instantiate(line[j].BoxObject, transform);
+                    Cell cell = Instantiate(line[j], transform);
                     cell.transform.position = new Vector3(defaultSize.x * i, defaultSize.y, defaultSize.z * j);
                 }
             }
