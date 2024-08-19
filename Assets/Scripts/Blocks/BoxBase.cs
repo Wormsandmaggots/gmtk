@@ -47,7 +47,11 @@ public class BoxBase : MonoBehaviour
 
         if (overCell != null && overCell.AssociatedBox == this)
         {
-            overCell.AssociatedBox = null;
+            if(overCell.AssociatedBox == this)
+                overCell.AssociatedBox = null;
+            
+            if(overCell.GetCellType() == CellType.Start)
+                BlockResolver.instance.RemoveFromToResolve(this);
         }
 
         overCell = null;
@@ -100,7 +104,7 @@ public class BoxBase : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            if (!isOverCell || overCell.AssociatedBox != null)
+            if (!isOverCell || overCell.AssociatedBox != null || overCell.GetCellType() == CellType.End)
             {
                 canBeDragged = false;
                 transform.DOMove(startPos, 0.5f).onComplete = () => { canBeDragged = true; };
@@ -114,6 +118,8 @@ public class BoxBase : MonoBehaviour
             transform.position = targetPosition;
             
             overCell.OnBlockOccupy(this);
+            
+            overCell.InvokeCellTypeRelatedMethods();
         }
     }
 

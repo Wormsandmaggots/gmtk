@@ -8,5 +8,10 @@ namespace Grid
         {
             Debug.Log("Win");
         }
+
+        public override CellType GetCellType()
+        {
+            return CellType.End;
+        }
     }
 }
