@@ -35,8 +35,12 @@ public class BlockResolver : MonoBehaviour
     public void ResolveRound()
     {
         if (isResolving) return;
+
+        if (toResolve.Count < 1)
+            return;
         
         isResolving = true;
+        
         foreach (var box in toResolve)
         {
             box.Execute(null);
