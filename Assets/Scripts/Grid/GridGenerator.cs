@@ -24,7 +24,6 @@ namespace Grid
     
     public class GridGenerator : MonoBehaviour
     {
-        [SerializeField] private GameObject invisibleWall;
         [SerializeField] private Vector3 defaultSize;
         [SerializeField] private Line[] grid;
 
