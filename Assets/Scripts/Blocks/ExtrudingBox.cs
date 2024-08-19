@@ -45,7 +45,7 @@ public class ExtrudingBox : BoxBase
         
                 scale += Time.deltaTime * extrudeSpeed * currDir;
 
-                scaler.transform.localScale = scale;
+                scaler.Scale(scale);
             
                 RaycastHit hit;
 
@@ -59,7 +59,5 @@ public class ExtrudingBox : BoxBase
 
             yield return null;
         }
-        
-        yield return null;
     }
 }

@@ -557,7 +557,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxesToSpawn:
   - {fileID: 396648646444602634, guid: 773b0240040090c4bb980129a875073d, type: 3}
-  - {fileID: 396648646444602634, guid: 773b0240040090c4bb980129a875073d, type: 3}
+  - {fileID: 4312383625241727171, guid: e20627b47f4b02148bfefefa53581a74, type: 3}
+  - {fileID: 3238404072912199970, guid: 46f17177d1f24414a9c97aca35b4291f, type: 3}
+  - {fileID: 5022670372814316680, guid: 3ee7214614e54f7468e8d736a9b26261, type: 3}
+  - {fileID: 8288572482024306627, guid: 7fb74b39929f38e408d25692920ff949, type: 3}
+  - {fileID: 8018025625124961974, guid: f2dca3fba11d5ff489d1739664a62e63, type: 3}
   offset: {x: 1.4, y: 0, z: 0}
   spawnDelay: 0.2
 --- !u!1 &199940716

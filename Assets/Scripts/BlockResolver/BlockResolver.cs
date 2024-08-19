@@ -34,6 +34,8 @@ public class BlockResolver : MonoBehaviour
     [Button]
     public void ResolveRound()
     {
+        if (isResolving) return;
+        
         isResolving = true;
         foreach (var box in toResolve)
         {

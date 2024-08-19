@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -18,6 +19,15 @@ namespace Blocks.Helpers
     
         [Dropdown("Directions")]
         [SerializeField] private Vector3 direction;
+        [SerializeField] private Transform endPart;
+        [SerializeField] private Vector3 endPartOffset = new Vector3(0, -1, 0);
+
+        public void Scale(Vector3 newScale)
+        {
+            transform.localScale = newScale;
+            
+            endPart.position = transform.GetChild(1).position + endPartOffset;
+        }
 
         public Vector3 Direction => direction;
     }
