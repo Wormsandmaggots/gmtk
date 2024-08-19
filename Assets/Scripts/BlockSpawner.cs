@@ -18,10 +18,12 @@ namespace DefaultNamespace
 
         private IEnumerator SpawnCoroutine()
         {
+            Vector3 startPos = transform.position;
+            
             int i = 0;
             foreach (var box in boxesToSpawn)
             {
-                Vector3 pos = offset * (i + 1);
+                Vector3 pos = startPos + offset * (i + 1);
                 pos.y += Settings.instance.cellBlockDragOffset;
                 
                 var newBox = Instantiate(box, pos, quaternion.identity, transform);

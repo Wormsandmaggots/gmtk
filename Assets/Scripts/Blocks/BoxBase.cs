@@ -88,15 +88,6 @@ public class BoxBase : MonoBehaviour
     void OnMouseDrag()
     {
         if (!canBeDragged) return;
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            Vector3 currentRotation = transform.eulerAngles;
-
-            currentRotation.y += 90;
-            
-            transform.rotation = Quaternion.Euler(currentRotation);
-        }
         
         Vector3 newPos = GetMouseWorldPos() + offset;
         transform.position = new Vector3(newPos.x, transform.position.y, newPos.z);
@@ -112,6 +103,18 @@ public class BoxBase : MonoBehaviour
         }
 
         isOverCell = false;
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Vector3 currentRotation = transform.eulerAngles;
+
+            currentRotation.y += 90;
+            
+            transform.rotation = Quaternion.Euler(currentRotation);
+        }
     }
 
     private void OnMouseUp()

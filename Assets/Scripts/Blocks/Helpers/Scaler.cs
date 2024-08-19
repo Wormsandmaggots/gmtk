@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -27,6 +28,23 @@ namespace Blocks.Helpers
             transform.localScale = newScale;
             
             endPart.position = transform.GetChild(1).position + Quaternion.Euler(transform.parent.rotation.eulerAngles) * endPartOffset;
+        }
+
+        public RaycastHit CheckBlockCollision()
+        {
+            RaycastHit hit;
+
+            Vector3 dir = Quaternion.Euler(transform.parent.rotation.eulerAngles).eulerAngles;
+
+            if (dir.magnitude == 0)
+                dir = direction;
+            
+            Physics.Raycast(endPart.position, dir,
+                out hit, Single.PositiveInfinity, Settings.instance.blockLayer | Settings.instance.cellLayer);
+            
+            Debug.DrawRay(endPart.position, Quaternion.Euler(transform.parent.rotation.eulerAngles).eulerAngles * 1000, Color.white);
+
+            return hit;
         }
 
         public Vector3 Direction => direction;
