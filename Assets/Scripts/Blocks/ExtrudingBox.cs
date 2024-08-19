@@ -51,7 +51,9 @@ public class ExtrudingBox : BoxBase
 
                 if (hit.collider != null)
                 {
-                    Debug.Log("DUPA");
+                    scaler.ShouldExtrude = false;
+                    
+                    hit.transform.GetComponent<BoxBase>().Execute(this);
                 }
             }
 

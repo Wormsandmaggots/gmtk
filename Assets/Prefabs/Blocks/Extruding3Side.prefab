@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5637591265805947470}
   - component: {fileID: 1628928752423373073}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Scaler3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 8613618776834385873}
   - component: {fileID: 1887617721049309147}
   - component: {fileID: 5518788630279617768}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8558750477127590828}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EndPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5564212838512589937}
   - component: {fileID: 299240909104503299}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Scaler2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 7046146134829332633}
   - component: {fileID: 691999984854504988}
   - component: {fileID: 5133592153803369491}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Between1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 120548477522279620}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EndPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 4223871103703656998}
   - component: {fileID: 2298354595822961111}
   - component: {fileID: 2926228036511996362}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 3305489126261306178}
   - component: {fileID: 3611212074807328876}
   - component: {fileID: 7625116366159042100}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Betweeen4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4640695259816361451}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EndPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 7085583923398062725}
   - component: {fileID: 2506470410986235941}
   - component: {fileID: 6677662535275908024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8346775040003691770}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: xxkwiatek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 4092253149049870727}
   - component: {fileID: 8110086856934172442}
   - component: {fileID: 1284314080882160646}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Between2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -751,7 +751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2620016995282630507}
   - component: {fileID: 4774409778952393385}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Scaler1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,7 +799,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660717642303561818}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EndPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +832,7 @@ GameObject:
   - component: {fileID: 5106416237090909074}
   - component: {fileID: 8160301262816305892}
   - component: {fileID: 5022670372814316680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Extruding3Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,7 +900,7 @@ GameObject:
   - component: {fileID: 8989709401554476766}
   - component: {fileID: 2977660323052737142}
   - component: {fileID: 7750172705525290114}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -985,7 +985,7 @@ GameObject:
   - component: {fileID: 8735178916280564631}
   - component: {fileID: 6346216375852029806}
   - component: {fileID: 4275840521000823922}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Between3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1070,7 +1070,7 @@ GameObject:
   - component: {fileID: 2082157217995029015}
   - component: {fileID: 6641515357413215291}
   - component: {fileID: 3949349240410171321}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BASE.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1154,7 +1154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7926277880510213612}
   - component: {fileID: 5536299596986893170}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Scaler4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
