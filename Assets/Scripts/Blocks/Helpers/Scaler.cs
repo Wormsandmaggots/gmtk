@@ -27,6 +27,7 @@ namespace Blocks.Helpers
         [SerializeField] private Vector3 endPartOffset = new Vector3(0, -1, 0);
         private bool shouldExtrude = true;
         private int dirIterator = 0;
+        private bool queuedForTunrOff = false;
 
         private void Start()
         {
@@ -35,6 +36,8 @@ namespace Blocks.Helpers
                 if (direction == dir[i])
                     dirIterator = i;
             }
+
+            endPart.GetComponent<Knob>().RelatedScaler = this;
         }
 
         public void Scale(Vector3 newScale)
@@ -56,12 +59,46 @@ namespace Blocks.Helpers
             rayDir.y += dirIterator;
             rayDir.y = (int)rayDir.y % 4;
             
-            Debug.Log(rayDir.y);
-
             rayDir = dir[(int)rayDir.y];
             
-            Physics.Raycast(endPart.position + rayDir / 3f, rayDir,
-                out hit, length, Settings.instance.blockLayer);
+            Physics.Raycast(endPart.position, rayDir, out hit,
+                length / 2, Settings.instance.blockLayer);
+            
+            return hit;
+        }
+
+        public RaycastHit CheckKnobCollision()
+        {
+            RaycastHit hit;
+
+            Vector3 rayDir = Quaternion.Euler(transform.parent.rotation.eulerAngles).eulerAngles;
+
+            rayDir.y /= 90;
+            rayDir.y += dirIterator;
+            rayDir.y = (int)rayDir.y % 4;
+            
+            rayDir = dir[(int)rayDir.y];
+            
+            Physics.Raycast(endPart.position + rayDir / 2, rayDir, out hit,
+                length, Settings.instance.knobLayer);
+            
+            return hit;
+        }
+        
+        public RaycastHit CheckLineCollision()
+        {
+            RaycastHit hit;
+
+            Vector3 rayDir = Quaternion.Euler(transform.parent.rotation.eulerAngles).eulerAngles;
+
+            rayDir.y /= 90;
+            rayDir.y += dirIterator;
+            rayDir.y = (int)rayDir.y % 4;
+            
+            rayDir = dir[(int)rayDir.y];
+            
+            Physics.Raycast(endPart.position + rayDir / 2, rayDir, out hit,
+                length / 2, Settings.instance.lineLayer);
             
             return hit;
         }
@@ -72,6 +109,12 @@ namespace Blocks.Helpers
         {
             get => shouldExtrude;
             set => shouldExtrude = value;
+        }
+
+        public bool QueuedForTunrOff
+        {
+            get => queuedForTunrOff;
+            set => queuedForTunrOff = value;
         }
     }
 }

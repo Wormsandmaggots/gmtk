@@ -46,4 +46,6 @@ public class BlockResolver : MonoBehaviour
             box.Execute(null);
         }
     }
+
+    public bool IsResolving => isResolving;
 }

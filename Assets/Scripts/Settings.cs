@@ -9,6 +9,8 @@ namespace DefaultNamespace
 
         public LayerMask cellLayer;
         public LayerMask blockLayer;
+        public LayerMask lineLayer;
+        public LayerMask knobLayer;
 
         public float cellBlockOffset = 0.5f;
         public float cellBlockDragOffset = 1f;
