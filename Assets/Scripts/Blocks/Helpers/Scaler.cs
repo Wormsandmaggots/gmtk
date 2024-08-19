@@ -103,6 +103,24 @@ namespace Blocks.Helpers
             return hit;
         }
 
+        public RaycastHit CheckWallCollision()
+        {
+            RaycastHit hit;
+
+            Vector3 rayDir = Quaternion.Euler(transform.parent.rotation.eulerAngles).eulerAngles;
+
+            rayDir.y /= 90;
+            rayDir.y += dirIterator;
+            rayDir.y = (int)rayDir.y % 4;
+            
+            rayDir = dir[(int)rayDir.y];
+            
+            Physics.Raycast(endPart.position + rayDir / 3, rayDir, out hit,
+                length / 2, Settings.instance.wallLayer);
+            
+            return hit;
+        }
+
         public Vector3 Direction => direction;
 
         public bool ShouldExtrude

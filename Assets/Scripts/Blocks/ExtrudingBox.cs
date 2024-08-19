@@ -84,6 +84,18 @@ public class ExtrudingBox : BoxBase
                     
                     continue;
                 }
+
+                hit = scaler.CheckWallCollision();
+
+                if (hit.collider != null && !scaler.QueuedForTunrOff)
+                {
+                    scaler.QueuedForTunrOff = true;
+                    StartCoroutine(DelayTurnOffScaling(scaler, 0.000001f));
+                    
+                    Debug.Log("WALL HIT");
+                    
+                    continue;
+                }
                 
                 Vector3 scale = scaler.transform.localScale;
                 Vector3 currDir = scaler.Direction;

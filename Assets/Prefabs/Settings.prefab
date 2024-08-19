@@ -56,5 +56,11 @@ MonoBehaviour:
   knobLayer:
     serializedVersion: 2
     m_Bits: 512
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  mouseInputLayer:
+    serializedVersion: 2
+    m_Bits: 129
   cellBlockOffset: 0.1
   cellBlockDragOffset: 1

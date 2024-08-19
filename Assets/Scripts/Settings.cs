@@ -11,6 +11,7 @@ namespace DefaultNamespace
         public LayerMask blockLayer;
         public LayerMask lineLayer;
         public LayerMask knobLayer;
+        public LayerMask wallLayer;
 
         public LayerMask mouseInputLayer;
 
