@@ -10,6 +10,7 @@ public class ExtrudingBox : BoxBase
 {
     [SerializeField] private float extrudeSpeed = 100;
     private Scaler[] scalers;
+    private bool isExecuting = false;
     
     protected override void Start()
     {
@@ -25,6 +26,9 @@ public class ExtrudingBox : BoxBase
 
     public override void Execute(BoxBase previous)
     {
+        if(isExecuting) return;
+        
+        isExecuting = true;
         StartCoroutine(Extrude());
     }
 
@@ -32,8 +36,29 @@ public class ExtrudingBox : BoxBase
     {
         while (true)
         {
+            int i = 0;
             foreach (var scaler in scalers)
             {
+                if(!scaler.ShouldExtrude) continue;
+                
+                RaycastHit hit = scaler.CheckBlockCollision();
+
+                if (hit.collider != null)
+                {
+                    scaler.ShouldExtrude = false;
+
+                    BoxBase box = hit.transform.GetComponent<BoxBase>();
+                    
+                    if(box != null)
+                        box.Execute(this);
+                    else
+                    {
+                        hit.transform.parent.parent.parent.GetComponent<BoxBase>().Execute(this);
+                    }
+
+                    i++;
+                }
+                
                 Vector3 scale = scaler.transform.localScale;
                 Vector3 currDir = scaler.Direction;
         
@@ -46,16 +71,11 @@ public class ExtrudingBox : BoxBase
                 scale += Time.deltaTime * extrudeSpeed * currDir;
 
                 scaler.Scale(scale);
-
-                RaycastHit hit = scaler.CheckBlockCollision();
-
-                if (hit.collider != null)
-                {
-                    scaler.ShouldExtrude = false;
-                    
-                    hit.transform.GetComponent<BoxBase>().Execute(this);
-                }
+                
             }
+            
+            if(i == scalers.Length)
+                yield break;
 
             yield return null;
         }

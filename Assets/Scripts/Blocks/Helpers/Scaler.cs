@@ -13,17 +13,29 @@ namespace Blocks.Helpers
             return new DropdownList<Vector3>()
             {
                 { "Right",   Vector3.right },
-                { "Left",    Vector3.left },
-                { "Forward", Vector3.forward },
-                { "Back",    Vector3.back }
+                { "Back",    Vector3.back },
+                { "Left", Vector3.left },
+                { "Forward",    Vector3.forward }
             };
         }
+
+        private Vector3[] dir = { Vector3.right, Vector3.back, Vector3.left, Vector3.forward };
     
         [Dropdown("Directions")]
         [SerializeField] private Vector3 direction;
         [SerializeField] private Transform endPart;
         [SerializeField] private Vector3 endPartOffset = new Vector3(0, -1, 0);
         private bool shouldExtrude = true;
+        private int dirIterator = 0;
+
+        private void Start()
+        {
+            for (int i = 0; i < dir.Length; i++)
+            {
+                if (direction == dir[i])
+                    dirIterator = i;
+            }
+        }
 
         public void Scale(Vector3 newScale)
         {
@@ -38,12 +50,17 @@ namespace Blocks.Helpers
         {
             RaycastHit hit;
 
-            Vector3 dir = Quaternion.Euler(transform.parent.rotation.eulerAngles).eulerAngles;
+            Vector3 rayDir = Quaternion.Euler(transform.parent.rotation.eulerAngles).eulerAngles;
 
-            if (dir.magnitude == 0)
-                dir = direction;
+            rayDir.y /= 90;
+            rayDir.y += dirIterator;
+            rayDir.y = (int)rayDir.y % 4;
             
-            Physics.Raycast(endPart.position, dir,
+            Debug.Log(rayDir.y);
+
+            rayDir = dir[(int)rayDir.y];
+            
+            Physics.Raycast(endPart.position + rayDir / 5f, rayDir,
                 out hit, length, Settings.instance.blockLayer);
             
             return hit;
