@@ -46,7 +46,20 @@ public class ExtrudingBox : BoxBase
                     continue;
                 }
                 
-                RaycastHit hit = scaler.CheckKnobCollision();
+                RaycastHit hit = scaler.CheckBlockCollision();
+                
+                if (hit.collider != null && !scaler.QueuedForTunrOff)
+                {
+                    scaler.QueuedForTunrOff = true;
+                    StartCoroutine(DelayTurnOffScaling(scaler, 0.000001f));
+                    hit.transform.GetComponent<BoxBase>().Execute(this);
+                    
+                    Debug.Log("BLOCK HIT");
+                    
+                    continue;
+                }
+                
+                hit = scaler.CheckKnobCollision();
 
                 if (hit.collider != null && !scaler.QueuedForTunrOff)
                 {
@@ -57,19 +70,6 @@ public class ExtrudingBox : BoxBase
                     hit.transform.parent.parent.GetComponent<BoxBase>().Execute(this);
                     
                     Debug.Log("KNOB HIT");
-                    
-                    continue;
-                }
-                
-                hit = scaler.CheckBlockCollision();
-                
-                if (hit.collider != null && !scaler.QueuedForTunrOff)
-                {
-                    scaler.QueuedForTunrOff = true;
-                    StartCoroutine(DelayTurnOffScaling(scaler, 0.000001f));
-                    hit.transform.GetComponent<BoxBase>().Execute(this);
-                    
-                    Debug.Log("BLOCK HIT");
                     
                     continue;
                 }
