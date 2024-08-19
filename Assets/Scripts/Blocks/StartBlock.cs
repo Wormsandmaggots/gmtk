@@ -6,9 +6,9 @@ namespace Blocks
     {
         [SerializeField] private BoxBase associatedBlock;
         
-        public override void Execute()
+        public override void Execute(BoxBase previous)
         {
-            associatedBlock.Execute();
+            associatedBlock.Execute(previous);
         }
     }
 }

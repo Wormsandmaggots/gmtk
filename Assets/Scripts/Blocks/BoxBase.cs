@@ -23,13 +23,18 @@ public class BoxBase : MonoBehaviour
     {
     }
 
-    public virtual void Execute(){}
+    public virtual void Execute(BoxBase previous)
+    {
+        
+    }
 
     public virtual void TryActivate(BoxBase touching)
     {
         isActive = true;
 
         touching.isActive = false;
+        
+        BlockResolver.instance.AddBlockToResolve(this);
     }
 
     public int GetID()

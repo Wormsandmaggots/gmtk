@@ -10,7 +10,7 @@ namespace Blocks
             id = 3;
         }
 
-        public override void Execute()
+        public override void Execute(BoxBase previous)
         {
             Debug.Log("win");
         }
