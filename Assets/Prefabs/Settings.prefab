@@ -50,5 +50,5 @@ MonoBehaviour:
   blockLayer:
     serializedVersion: 2
     m_Bits: 128
-  cellBlockOffset: 0.5
+  cellBlockOffset: 0.1
   cellBlockDragOffset: 1
