@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -8,7 +9,12 @@ namespace DefaultNamespace
         private void OnMouseDown()
         {
             Debug.Log("START");
-            BlockResolver.instance.ResolveRound();
+            transform.DOLocalMove(Vector3.down * 0.1f, 0.5f).onComplete = () =>
+            {
+                BlockResolver.instance.ResolveRound();
+
+                transform.DOLocalMove(Vector3.zero, 0.3f);
+            };
         }
 
         private void OnMouseOver()
