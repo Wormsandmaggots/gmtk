@@ -26,7 +26,7 @@ namespace Blocks.Helpers
         {
             transform.localScale = newScale;
             
-            endPart.position = transform.GetChild(1).position + endPartOffset;
+            endPart.position = transform.GetChild(1).position + Quaternion.Euler(transform.parent.rotation.eulerAngles) * endPartOffset;
         }
 
         public Vector3 Direction => direction;
