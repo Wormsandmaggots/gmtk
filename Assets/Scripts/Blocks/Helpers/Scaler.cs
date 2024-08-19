@@ -60,7 +60,7 @@ namespace Blocks.Helpers
 
             rayDir = dir[(int)rayDir.y];
             
-            Physics.Raycast(endPart.position + rayDir / 5f, rayDir,
+            Physics.Raycast(endPart.position + rayDir / 3f, rayDir,
                 out hit, length, Settings.instance.blockLayer);
             
             return hit;
