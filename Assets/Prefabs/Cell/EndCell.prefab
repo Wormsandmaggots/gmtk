@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7503634445956126492}
   - component: {fileID: 8789908973975972730}
-  m_Layer: 0
+  - component: {fileID: 569032354211007107}
+  m_Layer: 6
   m_Name: EndCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +46,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e375b91c330e4e6a987f316bb036f02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &569032354211007107
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057457072149768843}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5542893109774576486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117,6 +139,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: grid3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f55b92c11c4a54385e2a63fd9dae2e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

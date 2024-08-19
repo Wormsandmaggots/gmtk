@@ -26,7 +26,7 @@ namespace Grid
     {
         [SerializeField] private Vector3 defaultSize;
         [SerializeField] private Line[] grid;
-        
+
         [Button]
         void GenerateGrid()
         {
