@@ -1,26 +1,21 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using Blocks.Helpers;
+using DefaultNamespace;
 using NaughtyAttributes;
 using UnityEngine;
 
 public class ExtrudingBox : BoxBase
 {
-    private static DropdownList<Vector3> Directions()
-    {
-        return new DropdownList<Vector3>()
-        {
-            { "Right",   Vector3.right },
-            { "Left",    Vector3.left },
-            { "Forward", Vector3.forward },
-            { "Back",    Vector3.back }
-        };
-    }
-    
-    [Dropdown("Directions")]
-    [SerializeField] private Vector3 direction;
+    [SerializeField] private float extrudeSpeed = 100;
+    private Scaler[] scalers;
     
     protected override void Start()
     {
         id = 2;
+
+        scalers = GetComponentsInChildren<Scaler>();
     }
 
     public override void TryActivate(BoxBase touching)
@@ -28,34 +23,43 @@ public class ExtrudingBox : BoxBase
         base.TryActivate(touching);
     }
 
-    [Button]
-    public override void Execute()
+    public override void Execute(BoxBase previous)
     {
-        Vector3 scale = transform.localScale;
-        Vector3 currDir = direction;
-        
-        if (direction.x < 0)
-            currDir.x = -direction.x;
-
-        if (direction.z < 0)
-            currDir.z = -direction.z;
-        
-        scale += currDir;
-
-        transform.localScale = scale;
+        StartCoroutine(Extrude());
     }
 
-    [Button]
-    void Reset()
+    private IEnumerator Extrude()
     {
-        transform.localScale = Vector3.one;
-        transform.GetChild(0).transform.localPosition = Vector3.zero;
-    }
+        while (true)
+        {
+            foreach (var scaler in scalers)
+            {
+                Vector3 scale = scaler.transform.localScale;
+                Vector3 currDir = scaler.Direction;
+        
+                if (currDir.x < 0)
+                    currDir.x = -currDir.x;
 
-    [Button]
-    public void ResetPivot()
-    {
-        Vector3 scale = transform.localScale;
-        transform.GetChild(0).transform.localPosition = new Vector3(direction.x / 2, 0, direction.z / 2);
+                if (currDir.z < 0)
+                    currDir.z = -currDir.z;
+        
+                scale += Time.deltaTime * extrudeSpeed * currDir;
+
+                scaler.transform.localScale = scale;
+            
+                RaycastHit hit;
+
+                if (Physics.Raycast(transform.position, transform.TransformDirection(scaler.Direction), out hit, Mathf.Infinity,
+                        Settings.instance.blockLayer))
+                {
+                    BoxBase box = hit.transform.GetComponent<BoxBase>();
+                    box.Execute(this);
+                }
+            }
+
+            yield return null;
+        }
+        
+        yield return null;
     }
 }
