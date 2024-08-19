@@ -1690,6 +1690,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Settings
       objectReference: {fileID: 0}
+    - target: {fileID: 7446712978083791684, guid: 3e61837845b494941b98dc52bb4e6948,
+        type: 3}
+      propertyPath: cellBlockOffset
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1883,10 +1888,39 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubeGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 272737536835587929, guid: f066b95408b567a4c8162039bd3193b7,
+        type: 3}
+      propertyPath: boxesToSpawn.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 272737536835587929, guid: f066b95408b567a4c8162039bd3193b7,
+        type: 3}
+      propertyPath: 'boxesToSpawn.Array.data[0]'
+      value: 
+      objectReference: {fileID: 396648646444602634, guid: 773b0240040090c4bb980129a875073d,
+        type: 3}
+    - target: {fileID: 272737536835587929, guid: f066b95408b567a4c8162039bd3193b7,
+        type: 3}
+      propertyPath: 'boxesToSpawn.Array.data[1]'
+      value: 
+      objectReference: {fileID: 396648646444602634, guid: 773b0240040090c4bb980129a875073d,
+        type: 3}
+    - target: {fileID: 272737536835587929, guid: f066b95408b567a4c8162039bd3193b7,
+        type: 3}
+      propertyPath: 'boxesToSpawn.Array.data[2]'
+      value: 
+      objectReference: {fileID: 396648646444602634, guid: 773b0240040090c4bb980129a875073d,
+        type: 3}
+    - target: {fileID: 272737536835587929, guid: f066b95408b567a4c8162039bd3193b7,
+        type: 3}
+      propertyPath: 'boxesToSpawn.Array.data[3]'
+      value: 
+      objectReference: {fileID: 396648646444602634, guid: 773b0240040090c4bb980129a875073d,
+        type: 3}
     - target: {fileID: 4629446356426001759, guid: f066b95408b567a4c8162039bd3193b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.34
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4629446356426001759, guid: f066b95408b567a4c8162039bd3193b7,
         type: 3}
@@ -1896,7 +1930,7 @@ PrefabInstance:
     - target: {fileID: 4629446356426001759, guid: f066b95408b567a4c8162039bd3193b7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.24
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4629446356426001759, guid: f066b95408b567a4c8162039bd3193b7,
         type: 3}
