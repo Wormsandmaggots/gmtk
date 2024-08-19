@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Blocks;
 using Blocks.Helpers;
 using DefaultNamespace;
 using NaughtyAttributes;
@@ -39,24 +40,49 @@ public class ExtrudingBox : BoxBase
             int i = 0;
             foreach (var scaler in scalers)
             {
-                if(!scaler.ShouldExtrude) continue;
+                if (!scaler.ShouldExtrude)
+                {
+                    i++;
+                    continue;
+                }
                 
-                RaycastHit hit = scaler.CheckBlockCollision();
+                RaycastHit hit = scaler.CheckKnobCollision();
 
-                if (hit.collider != null)
+                if (hit.collider != null && !scaler.QueuedForTunrOff)
+                {
+                    scaler.QueuedForTunrOff = true;
+                    StartCoroutine(DelayTurnOffScaling(scaler, 0.06f));
+                    //StartCoroutine(DelayTurnOffScaling(hit.transform.GetComponent<Knob>().RelatedScaler, 0.0001f));
+                    hit.transform.GetComponent<Knob>().RelatedScaler.ShouldExtrude = false;
+                    hit.transform.parent.parent.GetComponent<BoxBase>().Execute(this);
+                    
+                    Debug.Log("KNOB HIT");
+                    
+                    continue;
+                }
+                
+                hit = scaler.CheckBlockCollision();
+                
+                if (hit.collider != null && !scaler.QueuedForTunrOff)
+                {
+                    scaler.QueuedForTunrOff = true;
+                    StartCoroutine(DelayTurnOffScaling(scaler, 0.000001f));
+                    hit.transform.GetComponent<BoxBase>().Execute(this);
+                    
+                    Debug.Log("BLOCK HIT");
+                    
+                    continue;
+                }
+
+                hit = scaler.CheckLineCollision();
+
+                if (hit.collider != null && !scaler.QueuedForTunrOff)
                 {
                     scaler.ShouldExtrude = false;
-
-                    BoxBase box = hit.transform.GetComponent<BoxBase>();
                     
-                    if(box != null)
-                        box.Execute(this);
-                    else
-                    {
-                        hit.transform.parent.parent.parent.GetComponent<BoxBase>().Execute(this);
-                    }
-
-                    i++;
+                    Debug.Log("LINE HIT");
+                    
+                    continue;
                 }
                 
                 Vector3 scale = scaler.transform.localScale;
@@ -79,5 +105,19 @@ public class ExtrudingBox : BoxBase
 
             yield return null;
         }
+    }
+
+    private IEnumerator DelayTurnOffScaling(Scaler scaler, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        scaler.ShouldExtrude = false;
+    }
+    
+    private IEnumerator DelayTurnOffScaling(Scaler scaler)
+    {
+        yield return null;
+
+        scaler.ShouldExtrude = false;
     }
 }

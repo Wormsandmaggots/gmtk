@@ -50,5 +50,11 @@ MonoBehaviour:
   blockLayer:
     serializedVersion: 2
     m_Bits: 128
+  lineLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  knobLayer:
+    serializedVersion: 2
+    m_Bits: 512
   cellBlockOffset: 0.1
   cellBlockDragOffset: 1
