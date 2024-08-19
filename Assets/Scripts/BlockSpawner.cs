@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -28,6 +29,10 @@ namespace DefaultNamespace
                 
                 var newBox = Instantiate(box, pos, quaternion.identity, transform);
                 newBox.StartPos = pos;
+
+                newBox.transform.DOJump(newBox.StartPos, 1f, 1, 0.6f);
+                newBox.transform.DOShakeRotation(0.7f, newBox.StartPos * 100);
+                //newBox.transform.DOPunchPosition(newBox.StartPos, 0.6f, 1, 0.2f);
                 
                 yield return new WaitForSeconds(spawnDelay);
                 i++;
