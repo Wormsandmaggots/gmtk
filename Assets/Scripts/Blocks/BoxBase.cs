@@ -46,7 +46,7 @@ public class BoxBase : MonoBehaviour
     private float zCoord;
     private Plane dragPlane;
 
-    void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         isOverCell = false;
 

@@ -12,6 +12,8 @@ namespace DefaultNamespace
         public LayerMask lineLayer;
         public LayerMask knobLayer;
 
+        public LayerMask mouseInputLayer;
+
         public float cellBlockOffset = 0.5f;
         public float cellBlockDragOffset = 1f;
 
@@ -23,6 +25,8 @@ namespace DefaultNamespace
             {
                 Destroy(gameObject);
             }
+
+            Camera.main.eventMask = mouseInputLayer;
         }
     }
 }

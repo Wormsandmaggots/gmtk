@@ -7,6 +7,7 @@ namespace DefaultNamespace
     {
         private void OnMouseDown()
         {
+            Debug.Log("START");
             BlockResolver.instance.ResolveRound();
         }
 

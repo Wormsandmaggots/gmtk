@@ -15,5 +15,10 @@ namespace Blocks
         {
             Debug.Log("Bumped into a wall!");
         }
+
+        protected override void OnMouseDown()
+        {
+            
+        }
     }
 }
