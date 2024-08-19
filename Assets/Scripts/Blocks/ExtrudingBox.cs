@@ -46,14 +46,12 @@ public class ExtrudingBox : BoxBase
                 scale += Time.deltaTime * extrudeSpeed * currDir;
 
                 scaler.Scale(scale);
-            
-                RaycastHit hit;
 
-                if (Physics.Raycast(transform.position, transform.TransformDirection(scaler.Direction), out hit, Mathf.Infinity,
-                        Settings.instance.blockLayer))
+                RaycastHit hit = scaler.CheckBlockCollision();
+
+                if (hit.collider != null)
                 {
-                    BoxBase box = hit.transform.GetComponent<BoxBase>();
-                    box.Execute(this);
+                    Debug.Log("DUPA");
                 }
             }
 
