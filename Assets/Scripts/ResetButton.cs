@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using Grid;
 using UnityEngine;
@@ -27,6 +28,12 @@ namespace DefaultNamespace
                 
                 transform.DOLocalMove(Vector3.zero, 0.1f).onComplete = () => { isClicking = false; };
             };
+        }
+
+        private IEnumerator ClickDelay()
+        {
+            yield return new WaitForSeconds(0.3f);
+            isClicking = false;
         }
     }
 }

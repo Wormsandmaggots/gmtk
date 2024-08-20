@@ -16,7 +16,7 @@ namespace DefaultNamespace
 
         public static UnityEvent Spawn = new UnityEvent();
 
-        private static BoxBase[] spawnedBlocks;
+        private static List<BoxBase> spawnedBlocks = new List<BoxBase>();
 
         private void OnDisable()
         {
@@ -35,13 +35,15 @@ namespace DefaultNamespace
 
         private void ResetBlocks()
         {
-            if (spawnedBlocks == null || spawnedBlocks.Length < 1)
+            if (spawnedBlocks == null || spawnedBlocks.Count < 1)
                 return;
             
             foreach (var block in spawnedBlocks)
             {
                 Destroy(block.gameObject);
             }
+            
+            spawnedBlocks.Clear();
             
             StartCoroutine(SpawnCoroutine(0));
         }
@@ -69,7 +71,7 @@ namespace DefaultNamespace
                 i++;
             }
 
-            spawnedBlocks = GetComponentsInChildren<BoxBase>();
+            spawnedBlocks = new List<BoxBase>(GetComponentsInChildren<BoxBase>());
         }
     }
 }
