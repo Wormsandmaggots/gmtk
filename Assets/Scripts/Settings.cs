@@ -15,7 +15,7 @@ namespace DefaultNamespace
         public LayerMask knobLayer;
         public LayerMask wallLayer;
 
-        public int level = 1;
+        public int level = 0;
 
         public LayerMask mouseInputLayer;
 

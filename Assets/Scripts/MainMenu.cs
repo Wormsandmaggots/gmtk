@@ -28,7 +28,6 @@ namespace DefaultNamespace
         {
             winText.transform.DOMove(winTextTarget.position, 1f);
             button.transform.DOMove(buttonTarget.position, 1f).onComplete = () => { clickable = true; };
-            BlurManager.SetBlur(true);
         }
         
         public void PlayTransition()
@@ -38,5 +37,11 @@ namespace DefaultNamespace
 
             es.SetSelectedGameObject(null);
         }
+
+        public void Exit()
+        {
+            Application.Quit();
+        }
+        
     }
 }
