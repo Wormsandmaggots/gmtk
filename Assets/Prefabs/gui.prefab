@@ -699,6 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blurMaterial: {fileID: 2100000, guid: b0aa3e624c335684cbbce56a4bf91ce9, type: 2}
+  blurPanel: {fileID: 3563183282171405377}
 --- !u!1 &6651324489209442990
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,6 +66,7 @@ public class BoxBase : MonoBehaviour
 
     protected virtual void OnMouseDown()
     {
+        if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
         
         isOverCell = false;
@@ -133,6 +134,7 @@ public class BoxBase : MonoBehaviour
 
     private void OnMouseOver()
     {
+        if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
         
         if (Input.GetMouseButtonDown(1) && !isRotating)
