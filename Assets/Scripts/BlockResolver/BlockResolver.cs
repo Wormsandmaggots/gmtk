@@ -34,6 +34,9 @@ public class BlockResolver : MonoBehaviour
 
     public void ClearResolve()
     {
+        if (toResolve == null || toResolve.Count < 1)
+            return;
+        
         toResolve.Clear();
 
         isResolving = false;

@@ -30,7 +30,7 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            StartCoroutine(SpawnCoroutine(1.5f));
+            StartCoroutine(SpawnCoroutine(3f));
         }
 
         private void ResetBlocks()

@@ -12,12 +12,15 @@ public class BlurManager : MonoBehaviour
     private static GameObject blurPanelStatic;
     [SerializeField] private Material blurMaterial;
     [SerializeField] private GameObject blurPanel;
+    [SerializeField] private float blurValue = 0.01f;
+    private static float blurValueStatic;
     
     void Awake()
     {
         blurCamera = Camera.main.transform.GetChild(0).GetComponent<Camera>();
 
         blurPanelStatic = blurPanel;
+        blurValueStatic = blurValue;
         
         if (blurCamera.targetTexture != null)
         {
@@ -40,7 +43,7 @@ public class BlurManager : MonoBehaviour
         if (value)
         {
             blurPanelStatic.SetActive(value);
-            blurMaterialStatic.DOFloat(0.01f, "_blur", 0.2f);
+            blurMaterialStatic.DOFloat(blurValueStatic, "_blur", 0.2f);
         }
         else
             blurMaterialStatic.DOFloat(0.0f, "_blur", 0.2f).onComplete = () => blurPanelStatic.SetActive(value);

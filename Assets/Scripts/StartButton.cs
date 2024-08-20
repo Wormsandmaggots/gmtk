@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Grid;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -9,6 +10,7 @@ namespace DefaultNamespace
         private bool isClicking = false;
         private void OnMouseDown()
         {
+            if (GridGenerator.block) return;
             if (Tutorial.IsBlocking) return;
             if (BlockResolver.isResolving) return;
             

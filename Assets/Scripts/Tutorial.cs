@@ -22,7 +22,7 @@ namespace DefaultNamespace
             IsBlocking = true;
             
             Sequence s = DOTween.Sequence();
-            s.AppendInterval(1.5f);
+            s.AppendInterval(2f);
             s.Append(transform.DOMove(target.position, 1f));
             s.onComplete = () => clickable = true;
             s.Play();

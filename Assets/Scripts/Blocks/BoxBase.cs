@@ -66,6 +66,7 @@ public class BoxBase : MonoBehaviour
 
     protected virtual void OnMouseDown()
     {
+        if (GridGenerator.block) return;
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
         
@@ -112,6 +113,7 @@ public class BoxBase : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (GridGenerator.block) return;
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
         
@@ -137,6 +139,7 @@ public class BoxBase : MonoBehaviour
 
     private void OnMouseOver()
     {
+        if (GridGenerator.block) return;
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
         
@@ -154,6 +157,7 @@ public class BoxBase : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (GridGenerator.block) return;
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
 

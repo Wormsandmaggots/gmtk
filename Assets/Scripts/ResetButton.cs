@@ -11,6 +11,7 @@ namespace DefaultNamespace
         private bool isClicking = false;
         private void OnMouseDown()
         {
+            if (GridGenerator.block) return;
             if (Tutorial.IsBlocking) return;
             if (WinScreen.win) return;
             
@@ -24,7 +25,8 @@ namespace DefaultNamespace
             {
                 GridGenerator.ResetCells();
                 BlockSpawner.Spawn.Invoke();
-                BlockResolver.instance.ClearResolve();
+                if(BlockResolver.instance != null)
+                    BlockResolver.instance.ClearResolve();
                 
                 transform.DOLocalMove(Vector3.zero, 0.1f).onComplete = () => { isClicking = false; };
             };
