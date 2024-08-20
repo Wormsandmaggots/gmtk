@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
         }
         
         Play("background");
+        DontDestroyOnLoad(gameObject);
     }
     
     public void Play(string name)
