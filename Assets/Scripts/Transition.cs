@@ -32,7 +32,17 @@ namespace DefaultNamespace
 
         public void NextLevel()
         {
-            SceneManager.LoadScene((Settings.instance.level + 1).ToString());
+            int level = Settings.instance.level + 1;
+
+            if (level > 10)
+            {
+                SceneManager.LoadScene("MainMenu");
+                Settings.instance.level = 0;
+            }
+            else
+            {
+                SceneManager.LoadScene((Settings.instance.level + 1).ToString());
+            }
         }
     }
 }

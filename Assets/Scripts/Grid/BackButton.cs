@@ -1,11 +1,12 @@
 using System;
+using DefaultNamespace;
 using DG.Tweening;
-using Grid;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-namespace DefaultNamespace
+namespace Grid
 {
-    public class ResetButton : MonoBehaviour
+    public class BackButton : MonoBehaviour
     {
         private bool isClicking = false;
         private void OnMouseDown()
@@ -21,11 +22,10 @@ namespace DefaultNamespace
             
             transform.DOLocalMove(Vector3.down * 0.1f, 0.2f).onComplete = () =>
             {
-                GridGenerator.ResetCells();
-                BlockSpawner.Spawn.Invoke();
-                BlockResolver.instance.ClearResolve();
-                
-                transform.DOLocalMove(Vector3.zero, 0.1f).onComplete = () => { isClicking = false; };
+                transform.DOLocalMove(Vector3.zero, 0.1f).onComplete = () =>
+                {
+                    Transition.PlayAnim();
+                };
             };
         }
     }
