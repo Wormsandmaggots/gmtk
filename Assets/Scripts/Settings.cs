@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
 {
@@ -13,6 +15,8 @@ namespace DefaultNamespace
         public LayerMask knobLayer;
         public LayerMask wallLayer;
 
+        public int level = 1;
+
         public LayerMask mouseInputLayer;
 
         public float cellBlockOffset = 0.5f;
@@ -20,6 +24,9 @@ namespace DefaultNamespace
 
         private void Awake()
         {
+            if(Char.IsNumber(SceneManager.GetActiveScene().name[0]))
+                level = Convert.ToInt16(SceneManager.GetActiveScene().name);
+            
             if(instance == null)
                 instance = this;
             else
