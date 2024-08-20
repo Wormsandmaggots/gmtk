@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace DefaultNamespace
 {
@@ -12,8 +13,33 @@ namespace DefaultNamespace
         [SerializeField] private List<BoxBase> boxesToSpawn;
         [SerializeField] private Vector3 offset = Vector3.right;
         [SerializeField] private float spawnDelay = 0.2f;
+
+        public static UnityEvent Spawn;
+
+        private static BoxBase[] spawnedBlocks;
+
+        private void OnDisable()
+        {
+            Spawn.RemoveListener(ResetBlocks);
+        }
+
+        private void OnEnable()
+        {
+            Spawn.AddListener(ResetBlocks);
+        }
+
         private void Start()
         {
+            StartCoroutine(SpawnCoroutine());
+        }
+
+        private void ResetBlocks()
+        {
+            foreach (var block in spawnedBlocks)
+            {
+                Destroy(block.gameObject);
+            }
+
             StartCoroutine(SpawnCoroutine());
         }
 
@@ -37,8 +63,8 @@ namespace DefaultNamespace
                 yield return new WaitForSeconds(spawnDelay);
                 i++;
             }
-            
-            yield return null;
+
+            spawnedBlocks = GetComponentsInChildren<BoxBase>();
         }
     }
 }

@@ -26,6 +26,20 @@ namespace Grid
     {
         [SerializeField] private Vector3 defaultSize;
         [SerializeField] private Line[] grid;
+        [SerializeField] private static Cell[] cells;
+
+        private void Start()
+        {
+            cells = GetComponentsInChildren<Cell>();
+        }
+
+        public static void ResetCells()
+        {
+            foreach (var cell in cells)
+            {
+                cell.AssociatedBox = null;
+            }
+        }
 
         [Button]
         void GenerateGrid()

@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Grid;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -15,8 +16,9 @@ namespace DefaultNamespace
             
             transform.DOLocalMove(Vector3.down * 0.1f, 0.2f).onComplete = () =>
             {
-                BlockResolver.instance.ResolveRound();
-
+                GridGenerator.ResetCells();
+                BlockSpawner.Spawn.Invoke();
+                
                 transform.DOLocalMove(Vector3.zero, 0.1f).onComplete = () => { isClicking = false; };
             };
         }
