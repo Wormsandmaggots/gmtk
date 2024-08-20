@@ -10,6 +10,8 @@ namespace DefaultNamespace
         private bool isClicking = false;
         private void OnMouseDown()
         {
+            if (BlockResolver.isResolving) return;
+            
             if(isClicking) return;
 
             isClicking = true;

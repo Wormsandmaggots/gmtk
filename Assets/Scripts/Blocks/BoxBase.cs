@@ -66,6 +66,8 @@ public class BoxBase : MonoBehaviour
 
     protected virtual void OnMouseDown()
     {
+        if (BlockResolver.isResolving) return;
+        
         isOverCell = false;
 
         isDragged = true;
@@ -107,6 +109,8 @@ public class BoxBase : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (BlockResolver.isResolving) return;
+        
         if (!canBeDragged) return;
         
         Vector3 newPos = GetMouseWorldPos() + offset;
@@ -127,6 +131,8 @@ public class BoxBase : MonoBehaviour
 
     private void OnMouseOver()
     {
+        if (BlockResolver.isResolving) return;
+        
         if (Input.GetMouseButtonDown(1))
         {
             Vector3 currentRotation = transform.eulerAngles;
@@ -139,6 +145,8 @@ public class BoxBase : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (BlockResolver.isResolving) return;
+
         if (Input.GetMouseButtonUp(0))
         {
             isDragged = false;

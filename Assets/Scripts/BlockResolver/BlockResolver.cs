@@ -8,10 +8,11 @@ public class BlockResolver : MonoBehaviour
     public static BlockResolver instance;
     
     private List<BoxBase> toResolve = new List<BoxBase>();
-    private bool isResolving = false;
+    public static bool isResolving = false;
 
     private void Awake()
     {
+        isResolving = false;
         instance = this;
     }
 
@@ -34,6 +35,8 @@ public class BlockResolver : MonoBehaviour
     public void ClearResolve()
     {
         toResolve.Clear();
+
+        isResolving = false;
     }
 
     [Button]
