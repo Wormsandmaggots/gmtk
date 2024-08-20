@@ -32,9 +32,8 @@ namespace DefaultNamespace
         
         public void PlayTransition()
         {
-            AudioManager.instance.Play("click");
-
             if (!clickable) return;
+            AudioManager.instance.Play("click");
             
             clickable = false;
             Transition.PlayAnim();
@@ -44,6 +43,7 @@ namespace DefaultNamespace
 
         public void Exit()
         {
+            if (!clickable) return;
             AudioManager.instance.Play("click");
 
             Application.Quit();
