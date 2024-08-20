@@ -156,7 +156,6 @@ public class BoxBase : MonoBehaviour
         {
             isDragged = false;
             canBeDragged = false;
-            //floatSequence.Kill(true);
             
             if (!isOverCell || overCell.AssociatedBox != null || overCell.GetCellType() == CellType.End)
             {
