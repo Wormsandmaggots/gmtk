@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Blocks;
 using Blocks.Helpers;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace Grid
@@ -38,7 +39,7 @@ namespace Grid
             EndCells.Remove(this);
                     
             if(EndCells.Count < 1)
-                Debug.Log("Win");
+                WinScreen.instance.ShowWinScreen();
         }
     }
 }

@@ -55,15 +55,7 @@ public class BoxBase : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        float amplitude = 0.1f;  // Amplituda unoszenia
-        float duration = 1f; 
 
-        // floatSequence.Kill(true);
-        //
-        // //floatSequence = transform.DOShakeRotation(100000, new Vector3(1,0,1), 10, 30).SetEase(Ease.InExpo);
-        // floatSequence = transform.DOMoveY(transform.position.y + amplitude, duration)
-        //     .SetLoops(-1, LoopType.Yoyo)   // Pętla nieskończona z powrotem
-        //     .SetEase(Ease.InOutSine);
     }
 
     private void OnMouseExit()
