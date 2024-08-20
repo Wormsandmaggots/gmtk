@@ -40,5 +40,10 @@ namespace DefaultNamespace
             
             SceneManager.LoadScene((Settings.instance.level + 1).ToString());
         }
+
+        public void PlayTransition()
+        {
+            Transition.PlayAnim();
+        }
     }
 }
