@@ -481,7 +481,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1760170432746052832}
         m_TargetAssemblyTypeName: DefaultNamespace.WinScreen, Assembly-CSharp
-        m_MethodName: NextLevel
+        m_MethodName: PlayTransition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
