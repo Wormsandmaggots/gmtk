@@ -7,8 +7,19 @@ namespace DefaultNamespace
     public class Transition : MonoBehaviour
     {
         private static Animator anim;
+        private static Transition instance;
+        
         private void Awake()
         {
+            if (instance != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                instance = this;
+            }
+            
             anim = GetComponent<Animator>();
             DontDestroyOnLoad(gameObject);
         }
