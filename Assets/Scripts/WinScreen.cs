@@ -20,11 +20,14 @@ namespace DefaultNamespace
         public EventSystem es;
 
         private bool clickable = false;
+
+        public static bool win = false;
         
         private void Awake()
         {
             es.firstSelectedGameObject = null;
             instance = this;
+            win = false;
         }
 
         public void ShowWinScreen()
@@ -32,6 +35,7 @@ namespace DefaultNamespace
             winText.transform.DOMove(winTextTarget.position, 1f);
             button.transform.DOMove(buttonTarget.position, 1f).onComplete = () => { clickable = true; };
             BlurManager.SetBlur(true);
+            win = true;
         }
 
         public void PlayTransition()
