@@ -10,7 +10,7 @@ namespace DefaultNamespace
         private bool isClicking = false;
         private void OnMouseDown()
         {
-            if (BlockResolver.isResolving) return;
+            if (WinScreen.win) return;
             
             if(isClicking) return;
 
