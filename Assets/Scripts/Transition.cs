@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
 {
@@ -15,6 +16,11 @@ namespace DefaultNamespace
         public static void PlayAnim()
         {
             anim.SetTrigger("nextLevel");
+        }
+
+        public void NextLevel()
+        {
+            SceneManager.LoadScene((Settings.instance.level + 1).ToString());
         }
     }
 }

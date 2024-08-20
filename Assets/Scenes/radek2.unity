@@ -3815,10 +3815,20 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1152232456271952919, guid: ab31097fef7d54c40a6869d29b7ba6f0,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1507527493272958113, guid: ab31097fef7d54c40a6869d29b7ba6f0,
         type: 3}
       propertyPath: m_Name
       value: TransitionCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188044229221696015, guid: ab31097fef7d54c40a6869d29b7ba6f0,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4395,5 +4405,5 @@ SceneRoots:
   - {fileID: 1700557697}
   - {fileID: 294990689848732070}
   - {fileID: 4560121009399030249}
-  - {fileID: 3920374536565633527}
   - {fileID: 4943274020599749135}
+  - {fileID: 3920374536565633527}
