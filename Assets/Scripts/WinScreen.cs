@@ -40,6 +40,7 @@ namespace DefaultNamespace
 
         public void PlayTransition()
         {
+            clickable = false;
             Transition.PlayAnim();
 
             es.SetSelectedGameObject(null);
