@@ -15,7 +15,6 @@ namespace DefaultNamespace
             if (isClicking) return;
             
             isClicking = true;
-            Debug.Log("START");
             transform.DOLocalMove(Vector3.down * 0.1f, 0.2f).onComplete = () =>
             {
                 BlockResolver.instance.ResolveRound();

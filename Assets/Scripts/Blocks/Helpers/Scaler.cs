@@ -64,6 +64,10 @@ namespace Blocks.Helpers
             Physics.Raycast(endPart.position, rayDir, out hit,
                 length / 2, Settings.instance.blockLayer);
             
+            //Debug.Log(endPart.position);
+            //Debug.DrawRay(endPart.position, rayDir * 10, Color.blue);
+            //Debug.DrawLine(endPart.position, endPart.position + rayDir * length, Color.blue);
+            
             return hit;
         }
 
