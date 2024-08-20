@@ -34,16 +34,11 @@ namespace DefaultNamespace
             BlurManager.SetBlur(true);
         }
 
-        public void NextLevel()
-        {
-            if (!clickable) return;
-            
-            SceneManager.LoadScene((Settings.instance.level + 1).ToString());
-        }
-
         public void PlayTransition()
         {
             Transition.PlayAnim();
+
+            es.SetSelectedGameObject(null);
         }
     }
 }
