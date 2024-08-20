@@ -24,6 +24,8 @@ namespace Grid
                 if (BlockResolver.instance.IsResolving)
                 {
                     StartCoroutine(DelayTurnOffScaling(other.GetComponent<Knob>().RelatedScaler));
+                    AudioManager.instance.Play("dotkEnd");
+
                 }
             }
         }

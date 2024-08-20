@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: bacground
+  - name: background
     isLooping: 1
     volume: 0.564
     clip: {fileID: 8300000, guid: 692ad14f81ae2684b8ed33a45f16405f, type: 3}

@@ -17,6 +17,8 @@ namespace DefaultNamespace
 
             isClicking = true;
             
+            AudioManager.instance.Play("click");
+            
             transform.DOLocalMove(Vector3.down * 0.1f, 0.2f).onComplete = () =>
             {
                 GridGenerator.ResetCells();

@@ -92,6 +92,8 @@ public class BoxBase : MonoBehaviour
         zCoord = Camera.main.WorldToScreenPoint(pos).z;
 
         offset = pos - GetMouseWorldPos();
+        
+        AudioManager.instance.Play("grab");
     }
 
     private Vector3 GetMouseWorldPos()
@@ -110,6 +112,7 @@ public class BoxBase : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
         
         if (!canBeDragged) return;
@@ -139,6 +142,7 @@ public class BoxBase : MonoBehaviour
         
         if (Input.GetMouseButtonDown(1) && !isRotating)
         {
+            AudioManager.instance.Play("grab");
             isRotating = true;
             Vector3 currentRotation = transform.eulerAngles;
 
@@ -150,6 +154,7 @@ public class BoxBase : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
 
         if (Input.GetMouseButtonUp(0))
@@ -162,6 +167,8 @@ public class BoxBase : MonoBehaviour
                 transform.DOMove(startPos, 0.5f).onComplete = () => { canBeDragged = true; };
                 return;
             }
+            
+            AudioManager.instance.Play("put");
 
             Vector3 targetPosition = overCell.transform.position;
 
