@@ -26,6 +26,7 @@ namespace DefaultNamespace
 
         public static void PlayAnim()
         {
+            anim = instance.GetComponent<Animator>();
             anim.SetTrigger("nextLevel");
         }
 

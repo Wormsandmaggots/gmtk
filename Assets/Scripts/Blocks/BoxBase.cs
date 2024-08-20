@@ -141,12 +141,8 @@ public class BoxBase : MonoBehaviour
             Vector3 currentRotation = transform.eulerAngles;
 
             currentRotation.y += 90;
-
-            //transform.DOKill(true);
-            //transform.DOComplete();
-            transform.DORotate(currentRotation, 0.1f).onComplete = () => { isRotating = false;};
             
-            //transform.rotation = Quaternion.Euler(currentRotation);
+            transform.DORotate(currentRotation, 0.1f).onComplete = () => { isRotating = false;};
         }
     }
 
