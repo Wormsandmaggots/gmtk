@@ -129,18 +129,22 @@ public class BoxBase : MonoBehaviour
         isOverCell = false;
     }
 
+    private bool isRotating = false;
+
     private void OnMouseOver()
     {
         if (BlockResolver.isResolving) return;
         
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && !isRotating)
         {
+            isRotating = true;
             Vector3 currentRotation = transform.eulerAngles;
 
             currentRotation.y += 90;
 
-            transform.DOKill(true);
-            transform.DORotate(currentRotation, 0.5f);
+            //transform.DOKill(true);
+            //transform.DOComplete();
+            transform.DORotate(currentRotation, 0.1f).onComplete = () => { isRotating = false;};
             
             //transform.rotation = Quaternion.Euler(currentRotation);
         }
