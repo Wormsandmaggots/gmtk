@@ -18,6 +18,7 @@ namespace DefaultNamespace
             {
                 GridGenerator.ResetCells();
                 BlockSpawner.Spawn.Invoke();
+                BlockResolver.instance.ClearResolve();
                 
                 transform.DOLocalMove(Vector3.zero, 0.1f).onComplete = () => { isClicking = false; };
             };

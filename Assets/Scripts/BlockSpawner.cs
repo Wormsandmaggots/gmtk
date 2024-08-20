@@ -14,7 +14,7 @@ namespace DefaultNamespace
         [SerializeField] private Vector3 offset = Vector3.right;
         [SerializeField] private float spawnDelay = 0.2f;
 
-        public static UnityEvent Spawn;
+        public static UnityEvent Spawn = new UnityEvent();
 
         private static BoxBase[] spawnedBlocks;
 

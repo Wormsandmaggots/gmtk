@@ -31,6 +31,11 @@ public class BlockResolver : MonoBehaviour
         toResolve.Remove(box);
     }
 
+    public void ClearResolve()
+    {
+        toResolve.Clear();
+    }
+
     [Button]
     public void ResolveRound()
     {
