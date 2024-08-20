@@ -32,6 +32,8 @@ namespace DefaultNamespace
         
         public void PlayTransition()
         {
+            if (!clickable) return;
+            
             clickable = false;
             Transition.PlayAnim();
 

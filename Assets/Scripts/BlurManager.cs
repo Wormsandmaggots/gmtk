@@ -33,7 +33,7 @@ public class BlurManager : MonoBehaviour
     {
         blurCamera.gameObject.SetActive(value);
 
-        blurMaterialStatic.DOFloat(0.0045f, "_blur", 0.2f);
+        blurMaterialStatic.DOFloat(0.01f, "_blur", 0.2f);
     }
     
 }
