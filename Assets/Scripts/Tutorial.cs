@@ -20,7 +20,12 @@ namespace DefaultNamespace
             startPos = transform.position;
             BlurManager.SetBlur(true);
             IsBlocking = true;
-            transform.DOMove(target.position, 1f).onComplete = () => clickable = true;
+            
+            Sequence s = DOTween.Sequence();
+            s.AppendInterval(1.5f);
+            s.Append(transform.DOMove(target.position, 1f));
+            s.onComplete = () => clickable = true;
+            s.Play();
         }
 
         private void Update()

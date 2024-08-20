@@ -30,21 +30,26 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            StartCoroutine(SpawnCoroutine());
+            StartCoroutine(SpawnCoroutine(1.5f));
         }
 
         private void ResetBlocks()
         {
+            if (spawnedBlocks == null || spawnedBlocks.Length < 1)
+                return;
+            
             foreach (var block in spawnedBlocks)
             {
                 Destroy(block.gameObject);
             }
-
-            StartCoroutine(SpawnCoroutine());
+            
+            StartCoroutine(SpawnCoroutine(0));
         }
 
-        private IEnumerator SpawnCoroutine()
+        private IEnumerator SpawnCoroutine(float delay)
         {
+            yield return new WaitForSeconds(delay);
+            
             Vector3 startPos = transform.position;
             
             int i = 0;

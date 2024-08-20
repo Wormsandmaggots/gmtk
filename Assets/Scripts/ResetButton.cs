@@ -21,9 +21,9 @@ namespace DefaultNamespace
             
             transform.DOLocalMove(Vector3.down * 0.1f, 0.2f).onComplete = () =>
             {
-                GridGenerator.ResetCells();
+                //GridGenerator.ResetCells();
                 BlockSpawner.Spawn.Invoke();
-                BlockResolver.instance.ClearResolve();
+                //BlockResolver.instance.ClearResolve();
                 
                 transform.DOLocalMove(Vector3.zero, 0.1f).onComplete = () => { isClicking = false; };
             };

@@ -43,6 +43,7 @@ namespace DefaultNamespace
         public void PlayTransition()
         {
             if (!clickable) return;
+            AudioManager.instance.Play("click");
             
             clickable = false;
             Transition.PlayAnim();

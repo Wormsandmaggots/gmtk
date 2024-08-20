@@ -35,6 +35,8 @@ namespace Grid
 
         public static void ResetCells()
         {
+            if (cells == null) return;
+            
             foreach (var cell in cells)
             {
                 cell.AssociatedBox = null;

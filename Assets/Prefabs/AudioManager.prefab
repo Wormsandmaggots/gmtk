@@ -62,7 +62,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: put
     isLooping: 0
-    volume: 0.564
+    volume: 0.65
     clip: {fileID: 8300000, guid: e372de4aee4756f4ba4045030844b404, type: 3}
     source: {fileID: 0}
   - name: win
