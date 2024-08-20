@@ -10,17 +10,24 @@ using UnityEngine;
 
 public class BoxBase : MonoBehaviour
 {
+    private Tweener floatSequence;
     private bool isActive = false;
     protected int id;
     private bool isOverCell = false;
     private Cell overCell;
 
     private bool canBeDragged = true;
+    private bool isDragged = false;
 
     private Vector3 startPos;
 
     protected virtual void Start()
     {
+    }
+
+    private void Update()
+    {
+        
     }
 
     public virtual void Execute(BoxBase previous)
@@ -46,9 +53,30 @@ public class BoxBase : MonoBehaviour
     private float zCoord;
     private Plane dragPlane;
 
+    private void OnMouseEnter()
+    {
+        float amplitude = 0.1f;  // Amplituda unoszenia
+        float duration = 1f; 
+
+        // floatSequence.Kill(true);
+        //
+        // //floatSequence = transform.DOShakeRotation(100000, new Vector3(1,0,1), 10, 30).SetEase(Ease.InExpo);
+        // floatSequence = transform.DOMoveY(transform.position.y + amplitude, duration)
+        //     .SetLoops(-1, LoopType.Yoyo)   // Pętla nieskończona z powrotem
+        //     .SetEase(Ease.InOutSine);
+    }
+
+    private void OnMouseExit()
+    {
+        // if(!isDragged)
+        //     floatSequence.Kill(true);
+    }
+
     protected virtual void OnMouseDown()
     {
         isOverCell = false;
+
+        isDragged = true;
 
         if (overCell != null && overCell.AssociatedBox == this)
         {
@@ -121,9 +149,12 @@ public class BoxBase : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
+            isDragged = false;
+            canBeDragged = false;
+            //floatSequence.Kill(true);
+            
             if (!isOverCell || overCell.AssociatedBox != null || overCell.GetCellType() == CellType.End)
             {
-                canBeDragged = false;
                 transform.DOMove(startPos, 0.5f).onComplete = () => { canBeDragged = true; };
                 return;
             }
@@ -132,7 +163,7 @@ public class BoxBase : MonoBehaviour
 
             targetPosition.y += Settings.instance.cellBlockOffset;
             
-            transform.position = targetPosition;
+            transform.DOMove(targetPosition, 0.2f).onComplete = () => { canBeDragged = true; };
             
             overCell.OnBlockOccupy(this);
             
