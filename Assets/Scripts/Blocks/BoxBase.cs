@@ -64,15 +64,23 @@ public class BoxBase : MonoBehaviour
         //     floatSequence.Kill(true);
     }
 
+    private static float dragTimeMoveLimit = 0.1f;
+    
+    private bool isMouseDown = false;
+    private float dragTime;
+
     protected virtual void OnMouseDown()
     {
         if (GridGenerator.block) return;
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
+
+        dragTime = 0;
         
         isOverCell = false;
 
         isDragged = true;
+        isMouseDown = true;
 
         if (overCell != null && overCell.AssociatedBox == this)
         {
@@ -94,7 +102,10 @@ public class BoxBase : MonoBehaviour
 
         offset = pos - GetMouseWorldPos();
         
+#if !UNITY_IOS && !UNITY_ANDROID
         AudioManager.instance.Play("grab");
+#endif
+        playsoundForFirstTime = true;
     }
 
     private Vector3 GetMouseWorldPos()
@@ -111,13 +122,29 @@ public class BoxBase : MonoBehaviour
         return Vector3.zero;
     }
 
+    private bool playsoundForFirstTime = true;
     void OnMouseDrag()
     {
         if (GridGenerator.block) return;
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
+        if (!isMouseDown) return;
         
         if (!canBeDragged) return;
+
+        dragTime += Time.deltaTime;
+
+#if UNITY_ANDROID || UNITY_IOS
+        if (dragTime < dragTimeMoveLimit)
+        {
+            return;
+        }
+        else if (playsoundForFirstTime)
+        {
+            playsoundForFirstTime = false;
+            AudioManager.instance.Play("grab");
+        }
+#endif
         
         Vector3 newPos = GetMouseWorldPos() + offset;
         transform.position = new Vector3(newPos.x, transform.position.y, newPos.z);
@@ -143,16 +170,12 @@ public class BoxBase : MonoBehaviour
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
         
-        if (Input.GetMouseButtonDown(1) && !isRotating)
+#if !UNITY_IOS && !UNITY_ANDROID
+        if (Input.GetMouseButtonDown(1))
         {
-            AudioManager.instance.Play("grab");
-            isRotating = true;
-            Vector3 currentRotation = transform.eulerAngles;
-
-            currentRotation.y += 90;
-            
-            transform.DORotate(currentRotation, 0.1f).onComplete = () => { isRotating = false;};
+            RotateBlock();
         }
+#endif
     }
 
     private void OnMouseUp()
@@ -160,6 +183,14 @@ public class BoxBase : MonoBehaviour
         if (GridGenerator.block) return;
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
+
+#if UNITY_IOS || UNITY_ANDROID
+        if (dragTime < dragTimeMoveLimit)
+        {
+            RotateBlock();
+            return;
+        }
+#endif
 
         if (Input.GetMouseButtonUp(0))
         {
@@ -173,9 +204,9 @@ public class BoxBase : MonoBehaviour
             }
             
             AudioManager.instance.Play("put");
-
+        
             Vector3 targetPosition = overCell.transform.position;
-
+        
             targetPosition.y += Settings.instance.cellBlockOffset;
             
             transform.DOMove(targetPosition, 0.2f).onComplete = () => { canBeDragged = true; };
@@ -184,6 +215,20 @@ public class BoxBase : MonoBehaviour
             
             overCell.InvokeCellTypeRelatedMethods();
         }
+    }
+
+    private void RotateBlock()
+    {
+        if (isRotating) return;
+        
+        isRotating = true;
+        
+        AudioManager.instance.Play("grab");
+        Vector3 currentRotation = transform.eulerAngles;
+
+        currentRotation.y += 90;
+            
+        transform.DORotate(currentRotation, 0.1f).onComplete = () => { isRotating = false;};
     }
 
     public bool CanBeDragged

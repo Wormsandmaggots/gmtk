@@ -30,11 +30,14 @@ namespace Grid
         [SerializeField] private Line[] grid;
         [SerializeField] private static Cell[] cells;
         private List<Vector3> positions;
+
+        private static EndCellTrigger[] endCells;
         public static bool block = true;
 
         private void Start()
         {
             cells = GetComponentsInChildren<Cell>();
+            endCells = GetComponentsInChildren<EndCellTrigger>();
 
             positions = new List<Vector3>();
 
@@ -54,6 +57,16 @@ namespace Grid
             foreach (var cell in cells)
             {
                 cell.AssociatedBox = null;
+            }
+
+            if (endCells == null)
+                return;
+
+            EndCellTrigger.EndCells.Clear();
+            
+            foreach (var endCell in endCells)
+            {
+                EndCellTrigger.EndCells.Add(endCell);    
             }
         }
 
@@ -95,14 +108,12 @@ namespace Grid
                 {
                     cells[i].transform.DOJump(positions[i], 1f, 1, 0.6f);
                     cells[i].transform.DOShakeRotation(0.7f, positions[i] * 10, 3, 45).onComplete = () => block = false;
-                    //cells[i].transform.DOMove(positions[i], 0.5f).onComplete = () => block = false;
                     yield return null;
                     break;
                 }
 
                 cells[i].transform.DOJump(positions[i], 1f, 1, 0.6f);
                 cells[i].transform.DOShakeRotation(0.7f, positions[i] * 100);
-                //cells[i].transform.DOMove(positions[i], 0.5f);
                 yield return null;
             }
         }

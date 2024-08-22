@@ -10,7 +10,7 @@ namespace Grid
 {
     public class EndCellTrigger : MonoBehaviour
     {
-        private static List<EndCellTrigger> EndCells = new List<EndCellTrigger>();
+        public static List<EndCellTrigger> EndCells = new List<EndCellTrigger>();
 
         private void Start()
         {
