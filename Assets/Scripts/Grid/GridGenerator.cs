@@ -24,31 +24,9 @@ namespace Grid
         }
     }
     
-    public class GridGenerator : MonoBehaviour
+    public class GridGenerator : Grid
     {
-        [SerializeField] private Vector3 defaultSize;
         [SerializeField] private Line[] grid;
-        [SerializeField] private static Cell[] cells;
-        private List<Vector3> positions;
-
-        private static EndCellTrigger[] endCells;
-        public static bool block = true;
-
-        private void Start()
-        {
-            cells = GetComponentsInChildren<Cell>();
-            endCells = GetComponentsInChildren<EndCellTrigger>();
-
-            positions = new List<Vector3>();
-
-            foreach (var cell in cells)
-            {
-                positions.Add(cell.transform.position);
-                cell.transform.position += Vector3.up * 10;
-            }
-
-            StartCoroutine(SpawnCells());
-        }
 
         public static void ResetCells()
         {
@@ -71,7 +49,7 @@ namespace Grid
         }
 
         [Button]
-        void GenerateGrid()
+        public override void GenerateGrid()
         {
             ClearGrid();
             
@@ -87,34 +65,6 @@ namespace Grid
                     Cell cell = Instantiate(line[j], transform);
                     cell.transform.position = new Vector3(defaultSize.x * i, defaultSize.y, defaultSize.z * j);
                 }
-            }
-        }
-
-        [Button]
-        void ClearGrid()
-        {
-            while (transform.childCount != 0)
-            { 
-                DestroyImmediate(transform.GetChild(0).gameObject);
-            }
-        }
-
-        private IEnumerator SpawnCells()
-        {
-            yield return new WaitForSeconds(1.5f);
-            for (int i = 0; i < cells.Length; i++)
-            {
-                if (i == cells.Length - 1)
-                {
-                    cells[i].transform.DOJump(positions[i], 1f, 1, 0.6f);
-                    cells[i].transform.DOShakeRotation(0.7f, positions[i] * 10, 3, 45).onComplete = () => block = false;
-                    yield return null;
-                    break;
-                }
-
-                cells[i].transform.DOJump(positions[i], 1f, 1, 0.6f);
-                cells[i].transform.DOShakeRotation(0.7f, positions[i] * 100);
-                yield return null;
             }
         }
     }
