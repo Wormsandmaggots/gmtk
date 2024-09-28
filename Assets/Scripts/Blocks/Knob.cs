@@ -40,8 +40,6 @@ namespace Blocks
             
             if (layer == LayerMask.NameToLayer("BlockBase"))
             {
-                Debug.Log("WITH BLOCK COLLISION");
-                
                 relatedScaler.ShouldExtrude = false;
                 var box = other.GetComponentInParent<BoxBase>();
                 
@@ -49,11 +47,18 @@ namespace Blocks
                 {
                     box.Execute(relatedBox);
                 }
+                Debug.Log("WITH BLOCK COLLISION");
             }
 
             if (layer == LayerMask.NameToLayer("Knob"))
             {
                 relatedScaler.ShouldExtrude = false;
+                var box = other.GetComponentInParent<BoxBase>();
+                
+                if (box != null)
+                {
+                    box.Execute(relatedBox);
+                }
                 Debug.Log("KNOB COLLISION");
             }
 

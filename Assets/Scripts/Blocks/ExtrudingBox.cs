@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Blocks;
 using Blocks.Helpers;
 using DefaultNamespace;
+using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -31,7 +32,8 @@ public class ExtrudingBox : BoxBase
         if(isExecuting) return;
         
         isExecuting = true;
-        StartCoroutine(Extrude());
+        transform.DOPunchScale(Vector3.one * 0.02f, 0.1f);
+        transform.DOJump(transform.position, 0.1f, 1, 0.1f).onComplete = () => StartCoroutine(Extrude());
     }
 
     private IEnumerator Extrude()

@@ -53,7 +53,6 @@ public class BlurManager : MonoBehaviour
 
     private static IEnumerator LerpFocusDistance(bool value)
     {
-        float targetValue = value ? 0 : 20;
         float currentValue = depthOfFieldStatic.focusDistance.value;
         float speed = 10f;
 
