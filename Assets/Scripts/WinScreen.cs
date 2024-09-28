@@ -33,9 +33,14 @@ namespace DefaultNamespace
         public void ShowWinScreen()
         {
             AudioManager.instance.Play("win");
+            button.GetComponentInChildren<Button>().interactable = false;
 
             winText.transform.DOMove(winTextTarget.position, 1f);
-            button.transform.DOMove(buttonTarget.position, 1f).onComplete = () => { clickable = true; };
+            button.transform.DOMove(buttonTarget.position, 1f).onComplete = () =>
+            {
+                clickable = true;
+                button.GetComponentInChildren<Button>().interactable = true;
+            };
             BlurManager.SetBlur(true);
             win = true;
         }
