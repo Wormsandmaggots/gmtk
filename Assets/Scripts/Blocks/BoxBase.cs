@@ -237,4 +237,6 @@ public class BoxBase : MonoBehaviour
         get => startPos;
         set => startPos = value;
     }
+
+    public Cell OverCell => overCell;
 }

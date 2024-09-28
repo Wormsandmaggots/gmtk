@@ -36,6 +36,11 @@ namespace Grid
             for (int k = 0; k < levels.Length; k++)
             {
                 Level level = levels[k];
+
+                GameObject floor = new GameObject(k.ToString());
+                floor.transform.parent = transform;
+                floor.transform.position = transform.position;
+                floor.AddComponent(typeof(Floor));
                 
                 for (int i = 0; i < level.Length(); i++)
                 {
@@ -46,7 +51,7 @@ namespace Grid
                         if (line[j] == null)
                             continue;
                     
-                        Cell cell = Instantiate(line[j], transform);
+                        Cell cell = Instantiate(line[j], floor.transform);
                         cell.transform.position = new Vector3(defaultSize.x * i, defaultSize.y * k, defaultSize.z * j);
                         cell.transform.localScale = new Vector3(1, k > 0 ? cell.transform.localScale.y * k * yScaleMultiplier : 1, 1);
                     }

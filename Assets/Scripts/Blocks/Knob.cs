@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Blocks.Helpers;
 using DefaultNamespace;
+using Grid;
 using UnityEngine;
 
 namespace Blocks
@@ -21,9 +22,22 @@ namespace Blocks
         private void OnTriggerEnter(Collider other)
         {
             if (!BlockResolver.isResolving || 
-                relatedBox.ForceStop1) return;
+                relatedBox.ForceStop1 || 
+                !relatedScaler.ShouldExtrude) return;
             
             LayerMask layer = other.gameObject.layer;
+
+            if (layer == LayerMask.NameToLayer("Cell"))
+            {
+                var cell = other.GetComponentInParent<Cell>();
+
+                if (cell.GetFloor() > relatedBox.OverCell.GetFloor())
+                {
+                    relatedScaler.ShouldExtrude = false;
+                    Debug.Log("CELL COLLISION");  
+                }
+            }
+            
             if (layer == LayerMask.NameToLayer("BlockBase"))
             {
                 Debug.Log("WITH BLOCK COLLISION");

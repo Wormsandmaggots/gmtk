@@ -47,5 +47,12 @@ namespace Grid
         {
             
         }
+
+        public int GetFloor()
+        {
+            Floor f = GetComponentInParent<Floor>();
+            
+            return f != null ? Convert.ToInt16(GetComponentInParent<Floor>().name) : 0;
+        }
     }
 }

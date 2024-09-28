@@ -53,6 +53,11 @@ namespace Grid
         {
             ClearGrid();
             
+            GameObject floor = new GameObject("0");
+            floor.transform.parent = transform;
+            floor.transform.position = transform.position;
+            floor.AddComponent(typeof(Floor));
+            
             for (int i = 0; i < grid.Length; i++)
             {
                 var line = grid[i];
@@ -62,7 +67,7 @@ namespace Grid
                     if (line[j] == null)
                         continue;
                     
-                    Cell cell = Instantiate(line[j], transform);
+                    Cell cell = Instantiate(line[j], floor.transform);
                     cell.transform.position = new Vector3(defaultSize.x * i, defaultSize.y, defaultSize.z * j);
                 }
             }
