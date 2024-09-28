@@ -32,8 +32,8 @@ public class ExtrudingBox : BoxBase
         if(isExecuting) return;
         
         isExecuting = true;
-        transform.DOPunchScale(Vector3.one * 0.02f, 0.1f);
-        transform.DOJump(transform.position, 0.1f, 1, 0.1f).onComplete = () => StartCoroutine(Extrude());
+        transform.DOPunchScale(Vector3.one * 0.1f, 0.2f);
+        transform.DOJump(transform.position, 0.2f, 1, 0.2f).onComplete = () => StartCoroutine(Extrude());
     }
 
     private IEnumerator Extrude()
