@@ -12,6 +12,7 @@ public class ExtrudingBox : BoxBase
     [SerializeField] private float extrudeSpeed = 100;
     private Scaler[] scalers;
     private bool isExecuting = false;
+    private bool forceStop = false;
     
     protected override void Start()
     {
@@ -37,63 +38,15 @@ public class ExtrudingBox : BoxBase
     {
         while (true)
         {
+            if(forceStop)
+                yield break;
+            
             int i = 0;
             foreach (var scaler in scalers)
             {
                 if (!scaler.ShouldExtrude)
                 {
                     i++;
-                    continue;
-                }
-                
-                RaycastHit hit = scaler.CheckBlockCollision();
-                
-                if (hit.collider != null && !scaler.QueuedForTunrOff)
-                {
-                    scaler.QueuedForTunrOff = true;
-                    StartCoroutine(DelayTurnOffScaling(scaler, 0.000001f));
-                    hit.transform.GetComponent<BoxBase>().Execute(this);
-                    
-                    Debug.Log("BLOCK HIT");
-                    
-                    continue;
-                }
-                
-                hit = scaler.CheckKnobCollision();
-
-                if (hit.collider != null && !scaler.QueuedForTunrOff)
-                {
-                    scaler.QueuedForTunrOff = true;
-                    StartCoroutine(DelayTurnOffScaling(scaler, 0.06f));
-                    //StartCoroutine(DelayTurnOffScaling(hit.transform.GetComponent<Knob>().RelatedScaler, 0.0001f));
-                    hit.transform.GetComponent<Knob>().RelatedScaler.ShouldExtrude = false;
-                    hit.transform.parent.parent.GetComponent<BoxBase>().Execute(this);
-                    
-                    Debug.Log("KNOB HIT");
-                    
-                    continue;
-                }
-
-                hit = scaler.CheckLineCollision();
-
-                if (hit.collider != null && !scaler.QueuedForTunrOff)
-                {
-                    scaler.ShouldExtrude = false;
-                    
-                    Debug.Log("LINE HIT");
-                    
-                    continue;
-                }
-
-                hit = scaler.CheckWallCollision();
-
-                if (hit.collider != null && !scaler.QueuedForTunrOff)
-                {
-                    scaler.QueuedForTunrOff = true;
-                    StartCoroutine(DelayTurnOffScaling(scaler, 0.000001f));
-                    
-                    Debug.Log("WALL HIT");
-                    
                     continue;
                 }
                 
@@ -132,4 +85,11 @@ public class ExtrudingBox : BoxBase
 
         scaler.ShouldExtrude = false;
     }
+
+    public void ForceStop()
+    {
+        forceStop = true;
+    }
+
+    public bool ForceStop1 => forceStop;
 }

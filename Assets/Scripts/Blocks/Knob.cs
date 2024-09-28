@@ -11,53 +11,54 @@ namespace Blocks
         private static float delay = 0.5f;
         
         private Scaler relatedScaler;
+        private ExtrudingBox relatedBox;
+
+        private void Start()
+        {
+            relatedBox = GetComponentInParent<ExtrudingBox>();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
-            // if (other.gameObject.layer == LayerMask.NameToLayer("Block"))
-            // {
-            //     if (BlockResolver.instance.IsResolving)
-            //     {
-            //         if (other.TryGetComponent(out BoxBase box))
-            //         {
-            //             box.Execute(transform.parent.parent.GetComponent<BoxBase>());
-            //             StartCoroutine(DelayScaleTurnOff());
-            //             return;
-            //         }
-            //
-            //         if (other.TryGetComponent(out Knob knob))
-            //         {
-            //             relatedScaler.ShouldExtrude = false;
-            //         }
-            //     }
-            // }
+            if (!BlockResolver.isResolving || 
+                relatedBox.ForceStop1) return;
+            
+            LayerMask layer = other.gameObject.layer;
+            if (layer == LayerMask.NameToLayer("BlockBase"))
+            {
+                Debug.Log("WITH BLOCK COLLISION");
+                
+                relatedScaler.ShouldExtrude = false;
+                var box = other.GetComponentInParent<BoxBase>();
+                
+                if (box != null)
+                {
+                    box.Execute(relatedBox);
+                }
+            }
+
+            if (layer == LayerMask.NameToLayer("Knob"))
+            {
+                relatedScaler.ShouldExtrude = false;
+                Debug.Log("KNOB COLLISION");
+            }
+
+            if (layer == LayerMask.NameToLayer("Line"))
+            {
+                relatedScaler.ShouldExtrude = false;
+                Debug.Log("LINE COLLISION");
+            }
+
+            if (layer == LayerMask.NameToLayer("Wall"))
+            {                
+                relatedScaler.ShouldExtrude = false;
+                Debug.Log("WALL COLLISION");
+            }
         }
 
         private void Update()
         {
             if (!BlockResolver.isResolving) return;
-            //
-            // RaycastHit hit;
-            //
-            // // Vector3 rayDir = Quaternion.Euler(transform.parent.rotation.eulerAngles).eulerAngles;
-            // //
-            // // rayDir.y /= 90;
-            // // rayDir.y += dirIterator;
-            // // rayDir.y = (int)rayDir.y % 4;
-            // //
-            // // rayDir = dir[(int)rayDir.y];
-            //
-            // Physics.Raycast(transform.position, transform.forward, out hit,
-            //     1f, Settings.instance.blockLayer);
-            //
-            // //Debug.Log(endPart.position);
-            // //Debug.DrawRay(endPart.position, rayDir * 10, Color.blue);
-            // //Debug.DrawLine(endPart.position, endPart.position + rayDir * length, Color.blue);
-            //
-            // if (hit.collider != null)
-            // {
-            //     Debug.Log("DUPA");
-            //     hit.transform.GetComponent<BoxBase>().Execute(null);
-            // }
         }
 
         private IEnumerator DelayScaleTurnOff()
