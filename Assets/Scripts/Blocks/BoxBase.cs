@@ -16,6 +16,8 @@ public class BoxBase : MonoBehaviour
 
     private Vector3 startPos;
 
+    public static int ResetCounter = 0;
+
     protected virtual void Start()
     {
     }
@@ -164,6 +166,7 @@ public class BoxBase : MonoBehaviour
         if (GridGenerator.block) return;
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
+        if (!canBeDragged) return;
         
 #if !UNITY_IOS && !UNITY_ANDROID
         if (Input.GetMouseButtonDown(1))
@@ -178,6 +181,7 @@ public class BoxBase : MonoBehaviour
         if (GridGenerator.block) return;
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
+        if (!canBeDragged) return;
 
 #if UNITY_IOS || UNITY_ANDROID
         if (dragTime < dragTimeMoveLimit)
@@ -226,6 +230,21 @@ public class BoxBase : MonoBehaviour
         transform.DORotate(currentRotation, 0.1f).onComplete = () => { isRotating = false;};
     }
 
+    public virtual void Reset()
+    {
+        ResetBase();
+    }
+
+    public void ResetBase()
+    {
+        if(overCell)
+            overCell.AssociatedBox = null;
+        
+        overCell = null;
+        canBeDragged = true;
+        isOverCell = false;
+    }
+
     public bool CanBeDragged
     {
         get => canBeDragged;
@@ -237,6 +256,8 @@ public class BoxBase : MonoBehaviour
         get => startPos;
         set => startPos = value;
     }
+
+    protected Vector3 StartPos1 => startPos;
 
     public Cell OverCell => overCell;
 }

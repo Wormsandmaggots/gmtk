@@ -93,5 +93,72 @@ public class ExtrudingBox : BoxBase
         forceStop = true;
     }
 
+    public override void Reset()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ResetScalers());
+    }
+
+    private IEnumerator ResetScalers()
+    {
+        CanBeDragged = false;
+        
+        foreach (var scaler in scalers)
+        {
+            scaler.ShouldExtrude = true;
+        }
+        
+        while (true)
+        {
+            int counter = 0;
+            foreach (var scaler in scalers)
+            {                
+                Vector3 scale = scaler.transform.localScale;
+
+                if (scale.sqrMagnitude == 3)
+                {
+                    counter++;
+                    continue;
+                }
+                
+                Vector3 currDir = scaler.Direction;
+        
+                if (currDir.x > 0)
+                    currDir.x = -currDir.x;
+
+                if (currDir.z > 0)
+                    currDir.z = -currDir.z;
+        
+                scale += Time.deltaTime * extrudeSpeed * currDir;
+
+                if (scale.x < 1)
+                    scale.x = 1;
+
+                if (scale.z < 1)
+                    scale.z = 1;
+
+                scaler.Scale(scale);
+            }
+
+            if (counter == scalers.Length)
+                break;
+                
+            yield return null;
+        }
+        
+        transform.DOJump(StartPos1, 0.5f, 1, 0.5f).onComplete = () =>
+        {
+            BoxBase.ResetCounter--;
+
+            if (BoxBase.ResetCounter <= 0)
+            {
+                BlockSpawner.ResetToBaseBoxValues();
+            }
+            
+            forceStop = false;
+            isExecuting = false;
+        };
+    }
+
     public bool ForceStop1 => forceStop;
 }

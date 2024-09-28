@@ -37,15 +37,37 @@ namespace DefaultNamespace
         {
             if (spawnedBlocks == null || spawnedBlocks.Count < 1)
                 return;
+
+            if (Settings.instance.resetMethod == Reset.Spawn)
+            {
+                foreach (var block in spawnedBlocks)
+                {
+                    Destroy(block.gameObject);
+                }
             
+                spawnedBlocks.Clear();
+            
+                StartCoroutine(SpawnCoroutine(0));
+            }
+
+            if (Settings.instance.resetMethod == Reset.Unextrude)
+            {
+                foreach (var block in spawnedBlocks)
+                {
+                    block.Reset();
+                }
+            }
+        }
+
+        public static void ResetToBaseBoxValues()
+        {
             foreach (var block in spawnedBlocks)
             {
-                Destroy(block.gameObject);
+                block.ResetBase();
             }
-            
-            spawnedBlocks.Clear();
-            
-            StartCoroutine(SpawnCoroutine(0));
+
+            BoxBase.ResetCounter = spawnedBlocks.Count;
+            ResetButton.ResetIsClicking();
         }
 
         private IEnumerator SpawnCoroutine(float delay)
@@ -72,6 +94,8 @@ namespace DefaultNamespace
             }
 
             spawnedBlocks = new List<BoxBase>(GetComponentsInChildren<BoxBase>());
+
+            BoxBase.ResetCounter = spawnedBlocks.Count;
         }
     }
 }

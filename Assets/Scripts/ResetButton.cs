@@ -8,7 +8,7 @@ namespace DefaultNamespace
 {
     public class ResetButton : MonoBehaviour
     {
-        private bool isClicking = false;
+        private static bool isClicking = false;
         private void OnMouseDown()
         {
             if (GridGenerator.block) return;
@@ -28,13 +28,18 @@ namespace DefaultNamespace
                 if(BlockResolver.instance != null)
                     BlockResolver.instance.ClearResolve();
                 
-                transform.DOLocalMove(Vector3.zero, 0.1f).onComplete = () => { isClicking = false; };
+                transform.DOLocalMove(Vector3.zero, 0.1f);
             };
         }
 
         private IEnumerator ClickDelay()
         {
             yield return new WaitForSeconds(0.3f);
+            isClicking = false;
+        }
+
+        public static void ResetIsClicking()
+        {
             isClicking = false;
         }
     }

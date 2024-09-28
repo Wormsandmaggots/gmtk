@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
 {
+    public enum Reset
+    {
+        Spawn,
+        Unextrude
+    }
+    
     public class Settings : MonoBehaviour
     {
         public static Settings instance;
@@ -14,6 +20,8 @@ namespace DefaultNamespace
         public LayerMask lineLayer;
         public LayerMask knobLayer;
         public LayerMask wallLayer;
+
+        public Reset resetMethod = Reset.Unextrude;
 
         public int level = 0;
 
