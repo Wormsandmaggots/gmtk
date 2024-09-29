@@ -99,8 +99,13 @@ public class BoxBase : MonoBehaviour
 
         offset = pos - GetMouseWorldPos();
         
-#if !UNITY_IOS && !UNITY_ANDROID
+#if !UNITY_IOS && !UNITY_ANDROID && !UNITY_WEBGL
         AudioManager.instance.Play("grab");
+#elif UNITY_WEBGL
+        if (!Application.isMobilePlatform)
+        {
+            AudioManager.instance.Play("grab");
+        }
 #endif
         playsoundForFirstTime = true;
     }
@@ -141,6 +146,19 @@ public class BoxBase : MonoBehaviour
             playsoundForFirstTime = false;
             AudioManager.instance.Play("grab");
         }
+#elif UNITY_WEBGL
+        if (Application.isMobilePlatform)
+        {
+            if (dragTime < dragTimeMoveLimit)
+            {
+                return;
+            }
+            else if (playsoundForFirstTime)
+            {
+                playsoundForFirstTime = false;
+                AudioManager.instance.Play("grab");
+            }
+        }
 #endif
         
         Vector3 newPos = GetMouseWorldPos() + offset;
@@ -168,8 +186,13 @@ public class BoxBase : MonoBehaviour
         if (BlockResolver.isResolving) return;
         if (!canBeDragged) return;
         
-#if !UNITY_IOS && !UNITY_ANDROID
+#if !UNITY_IOS && !UNITY_ANDROID && !UNITY_WEBGL
         if (Input.GetMouseButtonDown(1))
+        {
+            RotateBlock();
+        }
+#elif UNITY_WEBGL
+        if (!Application.isMobilePlatform && Input.GetMouseButtonDown(1))
         {
             RotateBlock();
         }
@@ -188,6 +211,15 @@ public class BoxBase : MonoBehaviour
         {
             RotateBlock();
             return;
+        }
+#elif UNITY_WEBGL
+        if (Application.isMobilePlatform)
+        {
+            if (dragTime < dragTimeMoveLimit)
+            {
+                RotateBlock();
+                return;
+            }
         }
 #endif
 

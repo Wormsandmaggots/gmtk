@@ -31,7 +31,9 @@ namespace Blocks
             {
                 var cell = other.GetComponentInParent<Cell>();
 
-                if (cell && cell.GetFloor() > relatedBox.OverCell.GetFloor())
+                if (cell &&
+                    relatedBox.OverCell &&
+                    cell.GetFloor() > relatedBox.OverCell.GetFloor())
                 {
                     relatedScaler.ShouldExtrude = false;
                     Debug.Log("CELL COLLISION");  
