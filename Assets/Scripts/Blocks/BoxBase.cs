@@ -74,12 +74,14 @@ public class BoxBase : MonoBehaviour
 
         dragTime = 0;
         
+        isMouseDown = true;
+        
+#if !UNITY_ANDROID && !UNITY_IOS && !UNITY_WEBGL
         isOverCell = false;
 
         isDragged = true;
-        isMouseDown = true;
 
-        if (overCell != null && overCell.AssociatedBox == this)
+        if (overCell != null && overCell.AssociatedBox ==  this)
         {
             if(overCell.AssociatedBox == this)
                 overCell.AssociatedBox = null;
@@ -89,6 +91,25 @@ public class BoxBase : MonoBehaviour
         }
 
         overCell = null;
+#elif UNITY_WEBGL
+    if(!Application.isMobilePlatform)
+    {
+        isOverCell = false;
+
+        isDragged = true;
+
+        if (overCell != null && overCell.AssociatedBox ==  this)
+        {
+            if(overCell.AssociatedBox == this)
+                overCell.AssociatedBox = null;
+            
+            if(overCell.GetCellType() == CellType.Start)
+                BlockResolver.instance.RemoveFromToResolve(this);
+        }
+
+        overCell = null;
+    }
+#endif
         
         Vector3 pos = transform.position;
         pos.y += Settings.instance.cellBlockDragOffset;
@@ -141,7 +162,23 @@ public class BoxBase : MonoBehaviour
         {
             return;
         }
-        else if (playsoundForFirstTime)
+        
+        isOverCell = false;
+
+        isDragged = true;
+
+        if (overCell != null && overCell.AssociatedBox ==  this)
+        {
+            if(overCell.AssociatedBox == this)
+                overCell.AssociatedBox = null;
+            
+            if(overCell.GetCellType() == CellType.Start)
+                BlockResolver.instance.RemoveFromToResolve(this);
+        }
+
+        overCell = null;
+        
+        if (playsoundForFirstTime)
         {
             playsoundForFirstTime = false;
             AudioManager.instance.Play("grab");
@@ -153,7 +190,25 @@ public class BoxBase : MonoBehaviour
             {
                 return;
             }
-            else if (playsoundForFirstTime)
+
+
+            isOverCell = false;
+
+            isDragged = true;
+            isMouseDown = true;
+
+            if (overCell != null && overCell.AssociatedBox ==  this)
+            {
+                if(overCell.AssociatedBox == this)
+                    overCell.AssociatedBox = null;
+            
+                if(overCell.GetCellType() == CellType.Start)
+                    BlockResolver.instance.RemoveFromToResolve(this);
+            }
+
+            overCell = null;
+            
+            if (playsoundForFirstTime)
             {
                 playsoundForFirstTime = false;
                 AudioManager.instance.Play("grab");
