@@ -3874,36 +3874,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2311665769020276671, guid: 51c76c9bf789adb45a155d237421d5d7,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2311665769020276671, guid: 51c76c9bf789adb45a155d237421d5d7,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2311665769020276671, guid: 51c76c9bf789adb45a155d237421d5d7,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2311665769020276671, guid: 51c76c9bf789adb45a155d237421d5d7,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2311665769020276671, guid: 51c76c9bf789adb45a155d237421d5d7,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -3740
-      objectReference: {fileID: 0}
-    - target: {fileID: 2311665769020276671, guid: 51c76c9bf789adb45a155d237421d5d7,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -2060
-      objectReference: {fileID: 0}
     - target: {fileID: 6352869773409433234, guid: 51c76c9bf789adb45a155d237421d5d7,
         type: 3}
       propertyPath: m_Name
