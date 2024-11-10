@@ -69,6 +69,7 @@ namespace Grid
                     
                     Cell cell = Instantiate(line[j], floor.transform);
                     cell.transform.position = new Vector3(defaultSize.x * i, defaultSize.y, defaultSize.z * j);
+                    cell.transform.position += transform.position;
                 }
             }
         }

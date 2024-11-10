@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9dbe613f90e494bb0e1378c4940b1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: ab8cdf23177d8fe4b8005793d519ba64, type: 2}
 --- !u!65 &8010503818973897211
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,7 +135,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: d6d3e9335ccb92640a4bb89cb127fa75, type: 2}
+      objectReference: {fileID: 2100000, guid: ab8cdf23177d8fe4b8005793d519ba64, type: 2}
     - target: {fileID: 919132149155446097, guid: f2f55b92c11c4a54385e2a63fd9dae2e,
         type: 3}
       propertyPath: m_Name
