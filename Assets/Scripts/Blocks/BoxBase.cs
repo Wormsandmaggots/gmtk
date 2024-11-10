@@ -77,7 +77,7 @@ public class BoxBase : MonoBehaviour
         isMouseDown = true;
         
 #if !UNITY_ANDROID && !UNITY_IOS && !UNITY_WEBGL
-        isOverCell = false;
+        //isOverCell = false;
 
         isDragged = true;
 
@@ -90,10 +90,13 @@ public class BoxBase : MonoBehaviour
                 BlockResolver.instance.RemoveFromToResolve(this);
         }
 
-        overCell = null;
+        //overCell?.IsOver(false);
+        //overCell = null;
 #elif UNITY_WEBGL
     if(!Application.isMobilePlatform)
     {
+        //overCell?.IsOver(false);
+
         isOverCell = false;
 
         isDragged = true;
@@ -107,7 +110,7 @@ public class BoxBase : MonoBehaviour
                 BlockResolver.instance.RemoveFromToResolve(this);
         }
 
-        overCell = null;
+        //overCell = null;
     }
 #endif
         
@@ -176,6 +179,7 @@ public class BoxBase : MonoBehaviour
                 BlockResolver.instance.RemoveFromToResolve(this);
         }
 
+        overCell?.IsOver(false);
         overCell = null;
         
         if (playsoundForFirstTime)
@@ -191,7 +195,7 @@ public class BoxBase : MonoBehaviour
                 return;
             }
 
-
+            overCell?.IsOver(false);
             isOverCell = false;
 
             isDragged = true;
@@ -224,11 +228,16 @@ public class BoxBase : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity,
                 Settings.instance.cellLayer))
         {
+            if(overCell != null)
+                overCell.IsOver(false);
+            
             isOverCell = true;
             overCell = hit.collider.GetComponent<Cell>();
+            overCell.IsOver(overCell.AssociatedBox == null);
             return;
         }
 
+        overCell?.IsOver(false);
         isOverCell = false;
     }
 
@@ -298,6 +307,8 @@ public class BoxBase : MonoBehaviour
             transform.DOMove(targetPosition, 0.2f).onComplete = () => { canBeDragged = true; };
             
             overCell.OnBlockOccupy(this);
+            
+            overCell.IsOver(false);
             
             overCell.InvokeCellTypeRelatedMethods();
         }

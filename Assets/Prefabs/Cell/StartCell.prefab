@@ -66,8 +66,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.22238263, z: 1}
+  m_Center: {x: 0, y: -0.01454945, z: 0}
 --- !u!1 &8430948569502064089
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3dbf2716fa113c443868c438db5db3e4, type: 2}
+      objectReference: {fileID: 2100000, guid: 05801f3d9ab7e644b973293c57eac7ba, type: 2}
     - target: {fileID: 919132149155446097, guid: f2f55b92c11c4a54385e2a63fd9dae2e,
         type: 3}
       propertyPath: m_Name
