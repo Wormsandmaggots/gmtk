@@ -10,6 +10,7 @@ namespace DefaultNamespace
 {
     public class BlockSpawner : MonoBehaviour
     {
+        public static bool isReseting = false;
         [SerializeField] private List<BoxBase> boxesToSpawn;
         [SerializeField] private Vector3 offset = Vector3.right;
         [SerializeField] private float spawnDelay = 0.2f;
@@ -96,6 +97,8 @@ namespace DefaultNamespace
             spawnedBlocks = new List<BoxBase>(GetComponentsInChildren<BoxBase>());
 
             BoxBase.ResetCounter = spawnedBlocks.Count;
+
+            isReseting = false;
         }
     }
 }

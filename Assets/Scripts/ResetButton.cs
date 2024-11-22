@@ -14,12 +14,15 @@ namespace DefaultNamespace
             if (GridGenerator.block) return;
             if (Tutorial.IsBlocking) return;
             if (WinScreen.win) return;
+            if (!BlockResolver.isResolving) return;
             
             if(isClicking) return;
 
             isClicking = true;
             
             AudioManager.instance.Play("click");
+
+            BlockSpawner.isReseting = true;
             
             transform.DOLocalMove(Vector3.down * 0.1f, 0.2f).onComplete = () =>
             {

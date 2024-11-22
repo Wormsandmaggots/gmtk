@@ -26,7 +26,7 @@ namespace Grid
             foreach (var cell in cells)
             {
                 positions.Add(cell.transform.position);
-                cell.transform.position += Vector3.up * 10;
+                cell.transform.position += Vector3.up * 20;
             }
 
             StartCoroutine(SpawnCells());
@@ -50,12 +50,14 @@ namespace Grid
                 {
                     cells[i].transform.DOJump(positions[i], 1f, 1, 0.6f);
                     cells[i].transform.DOShakeRotation(0.7f, positions[i] * 10, 3, 45).onComplete = () => block = false;
+                    //cells[i].transform.DOPunchRotation(Vector3.one * 100, 0.6f).onComplete = () => block = false;
                     yield return null;
                     break;
                 }
 
                 cells[i].transform.DOJump(positions[i], 1f, 1, 0.6f);
                 cells[i].transform.DOShakeRotation(0.7f, positions[i] * 100);
+                //cells[i].transform.DOPunchRotation(Vector3.one * 100, 0.6f);
                 yield return null;
             }
         }

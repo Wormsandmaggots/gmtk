@@ -9,6 +9,7 @@ public class BlockResolver : MonoBehaviour
     
     private List<BoxBase> toResolve = new List<BoxBase>();
     public static bool isResolving = false;
+    public static bool canResolve = false;
 
     private void Awake()
     {
@@ -25,11 +26,16 @@ public class BlockResolver : MonoBehaviour
     public void AddBlockToResolve(BoxBase box)
     {
         toResolve.Add(box);
+        
+        canResolve = true;
     }
 
     public void RemoveFromToResolve(BoxBase box)
     {
         toResolve.Remove(box);
+        
+        if(toResolve.Count <= 0)
+            canResolve = false;
     }
 
     public void ClearResolve()

@@ -13,6 +13,8 @@ namespace DefaultNamespace
             if (GridGenerator.block) return;
             if (Tutorial.IsBlocking) return;
             if (BlockResolver.isResolving) return;
+            if (BlockSpawner.isReseting) return;
+            if (!BlockResolver.canResolve) return;
             
             if (isClicking) return;
             

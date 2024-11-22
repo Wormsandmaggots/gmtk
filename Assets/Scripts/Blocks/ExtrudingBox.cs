@@ -5,7 +5,6 @@ using Blocks;
 using Blocks.Helpers;
 using DefaultNamespace;
 using DG.Tweening;
-using NaughtyAttributes;
 using UnityEngine;
 
 public class ExtrudingBox : BoxBase
@@ -152,6 +151,7 @@ public class ExtrudingBox : BoxBase
 
             if (BoxBase.ResetCounter <= 0)
             {
+                BlockSpawner.isReseting = false;
                 BlockSpawner.ResetToBaseBoxValues();
             }
             
