@@ -74,12 +74,12 @@ namespace Grid
             if (val)
             {
                 material.DOKill();
-                material.DOFloat(1, "_Lerp", 1f);
+                material.DOFloat(1, "_Lerp", 0.4f);
             }
             else
             {
                 material.DOKill();
-                material.DOFloat(0, "_Lerp", 1f);
+                material.DOFloat(0, "_Lerp", 0.4f);
             }
         }
 
