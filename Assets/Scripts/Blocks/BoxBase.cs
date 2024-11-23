@@ -18,6 +18,8 @@ public class BoxBase : MonoBehaviour
 
     public static int ResetCounter = 0;
 
+    private Sequence s;
+
     protected virtual void Start()
     {
     }
@@ -75,6 +77,8 @@ public class BoxBase : MonoBehaviour
         dragTime = 0;
         
         isMouseDown = true;
+        
+        s.Kill();
         
 #if !UNITY_ANDROID && !UNITY_IOS && !UNITY_WEBGL
         //isOverCell = false;
@@ -294,7 +298,14 @@ public class BoxBase : MonoBehaviour
             
             if (!isOverCell || overCell.AssociatedBox != null || overCell.GetCellType() == CellType.End)
             {
-                transform.DOMove(startPos, 0.5f).onComplete = () => { canBeDragged = true; };
+                s = DOTween.Sequence();
+                s.Append(transform.DOMove(startPos, 0.5f));
+                s.onComplete = () => { canBeDragged = true; };
+                s.onKill = () => { canBeDragged = true; };
+                s.Play();
+                
+                //transform.DOMove(startPos, 0.5f).onComplete = () => { canBeDragged = true; };
+                
                 return;
             }
             
