@@ -144,20 +144,23 @@ public class ExtrudingBox : BoxBase
                 
             yield return null;
         }
-        
-        transform.DOJump(StartPos1, 0.5f, 1, 0.5f).onComplete = () =>
-        {
-            BoxBase.ResetCounter--;
 
-            if (BoxBase.ResetCounter <= 0)
+        if (Settings.instance.resetMethod == DefaultNamespace.Reset.Unextrude)
+        {
+            transform.DOJump(StartPos1, 0.5f, 1, 0.5f).onComplete = () =>
             {
-                BlockSpawner.isReseting = false;
-                BlockSpawner.ResetToBaseBoxValues();
-            }
+                ResetCounter--;
+
+                if (ResetCounter <= 0)
+                {
+                    BlockSpawner.isReseting = false;
+                    BlockSpawner.ResetToBaseBoxValues();
+                }
             
-            forceStop = false;
-            isExecuting = false;
-        };
+                forceStop = false;
+                isExecuting = false;
+            };
+        }
     }
 
     public bool ForceStop1 => forceStop;

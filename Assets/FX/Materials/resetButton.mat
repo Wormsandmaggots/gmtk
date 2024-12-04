@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: startFlash
+  m_Name: resetButton
   m_Shader: {fileID: -6465566751694194690, guid: e39e0cd8143f2964cbf1792a531e1621,
     type: 3}
   m_Parent: {fileID: 0}
@@ -99,11 +99,9 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FlashingSpeed: 5
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Lerp: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -117,23 +115,23 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _WorkflowMode: 1
-    - _Ymultiplier: 0
+    - _Ymultiplier: -1
     - _ZWrite: 1
     - _flip: 0
     - _influence: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.54901963, g: 0.8862745, b: 0.14901961, a: 1}
+    - _Color: {r: 0.78039217, g: 0.1882353, b: 0.32941177, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlashColor: {r: 0.39500904, g: 1, b: 0.33018857, a: 1}
+    - _FlashColor: {r: 1, g: 0.33018857, b: 0.33018857, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _center: {r: 0, g: 0, b: 0, a: 0}
-    - _direction: {r: -1, g: 0, b: 0, a: 0}
+    - _direction: {r: 1, g: 0, b: 0, a: 0}
     - _size: {r: 0.125, g: 2, b: 0, a: 0}
     - _strength: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &5816377894642305725
+--- !u!114 &6682949795062439031
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

@@ -15,6 +15,7 @@ public class BlockResolver : MonoBehaviour
     {
         isResolving = false;
         instance = this;
+        canResolve = false;
     }
 
     private void Update()
@@ -46,6 +47,7 @@ public class BlockResolver : MonoBehaviour
         toResolve.Clear();
 
         isResolving = false;
+        canResolve = false;
     }
 
     [Button]
