@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using DefaultNamespace;
 using DG.Tweening;
 using Grid;
@@ -5,6 +7,7 @@ using UnityEngine;
 
 public class BoxBase : MonoBehaviour
 {
+    [SerializeField] private float yDownOffset = 0.05f;
     private Tweener floatSequence;
     private bool isActive = false;
     protected int id;
@@ -19,9 +22,14 @@ public class BoxBase : MonoBehaviour
     public static int ResetCounter = 0;
 
     private Sequence s;
+    private Sequence grabSequence;
+    private Sequence putSequence;
+
+    private bool isPuttingDown = false;
 
     protected virtual void Start()
     {
+        
     }
 
     private void Update()
@@ -46,6 +54,17 @@ public class BoxBase : MonoBehaviour
     public int GetID()
     {
         return id;
+    }
+
+    public virtual void PlayDrop()
+    {
+        
+    }
+
+    public IEnumerator PlayDropDelayed(float val)
+    {
+        yield return new WaitForSeconds(val);
+        PlayDrop();
     }
 
     private Vector3 offset;
@@ -78,8 +97,14 @@ public class BoxBase : MonoBehaviour
         
         isMouseDown = true;
         
-        s.Kill();
+        if(s.IsActive())
+            s.Kill();
         
+        if(grabSequence.IsActive())
+            grabSequence.Kill();
+        
+        if(putSequence.IsActive())
+            putSequence.Kill();
 #if !UNITY_ANDROID && !UNITY_IOS && !UNITY_WEBGL
         //isOverCell = false;
 
@@ -92,6 +117,10 @@ public class BoxBase : MonoBehaviour
             
             if(overCell.GetCellType() == CellType.Start)
                 BlockResolver.instance.RemoveFromToResolve(this);
+            
+            grabSequence = DOTween.Sequence();
+            grabSequence.Append(transform.DOMoveY(transform.position.y + Settings.instance.cellBlockOffset, 0.1f));
+            grabSequence.Play();
         }
 
         //overCell?.IsOver(false);
@@ -112,6 +141,10 @@ public class BoxBase : MonoBehaviour
             
             if(overCell.GetCellType() == CellType.Start)
                 BlockResolver.instance.RemoveFromToResolve(this);
+
+            grabSequence = DOTween.Sequence();
+            grabSequence.Append(transform.DOMoveY(transform.position.y + Settings.instance.cellBlockOffset, 0.1f));
+            grabSequence.Play();
         }
 
         //overCell = null;
@@ -119,7 +152,7 @@ public class BoxBase : MonoBehaviour
 #endif
         
         Vector3 pos = transform.position;
-        pos.y += Settings.instance.cellBlockDragOffset;
+        //pos.y += Settings.instance.cellBlockDragOffset;
         
         dragPlane = new Plane(Vector3.up, pos);
 
@@ -159,9 +192,9 @@ public class BoxBase : MonoBehaviour
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
         if (!isMouseDown) return;
-        
+        if (isPuttingDown) return;
         if (!canBeDragged) return;
-
+        
         dragTime += Time.deltaTime;
 
 #if UNITY_ANDROID || UNITY_IOS
@@ -181,6 +214,10 @@ public class BoxBase : MonoBehaviour
             
             if(overCell.GetCellType() == CellType.Start)
                 BlockResolver.instance.RemoveFromToResolve(this);
+
+            grabSequence = DOTween.Sequence();
+            grabSequence.Append(transform.DOMoveY(transform.position.y + Settings.instance.cellBlockOffset, 0.1f));
+            grabSequence.Play();
         }
 
         overCell?.IsOver(false);
@@ -212,6 +249,10 @@ public class BoxBase : MonoBehaviour
             
                 if(overCell.GetCellType() == CellType.Start)
                     BlockResolver.instance.RemoveFromToResolve(this);
+                
+                grabSequence = DOTween.Sequence();
+                grabSequence.Append(transform.DOMoveY(transform.position.y + Settings.instance.cellBlockOffset, 0.1f));
+                grabSequence.Play();
             }
 
             overCell = null;
@@ -237,7 +278,16 @@ public class BoxBase : MonoBehaviour
             
             isOverCell = true;
             overCell = hit.collider.GetComponent<Cell>();
+            // if (overCell.AssociatedBox == this)
+            // {
+            //     if(overCell.GetCellType() == CellType.Start)
+            //         BlockResolver.instance.RemoveFromToResolve(this);
+            //     
+            //     overCell.AssociatedBox = null;
+            // }
+            
             overCell.IsOver(overCell.AssociatedBox == null);
+
             return;
         }
 
@@ -273,6 +323,7 @@ public class BoxBase : MonoBehaviour
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
         if (!canBeDragged) return;
+        if (isPuttingDown) return;
 
 #if UNITY_IOS || UNITY_ANDROID
         if (dragTime < dragTimeMoveLimit)
@@ -300,28 +351,21 @@ public class BoxBase : MonoBehaviour
             {
                 s = DOTween.Sequence();
                 s.Append(transform.DOMove(startPos, 0.5f));
-                s.onComplete = () => { canBeDragged = true; };
+                s.onComplete = () =>
+                {
+                    canBeDragged = true;
+                };
                 s.onKill = () => { canBeDragged = true; };
                 s.Play();
-                
-                //transform.DOMove(startPos, 0.5f).onComplete = () => { canBeDragged = true; };
                 
                 return;
             }
             
-            AudioManager.instance.Play("put");
-        
-            Vector3 targetPosition = overCell.transform.position;
-        
-            targetPosition.y += Settings.instance.cellBlockOffset;
-            
-            transform.DOMove(targetPosition, 0.2f).onComplete = () => { canBeDragged = true; };
-            
             overCell.OnBlockOccupy(this);
-            
             overCell.IsOver(false);
-            
             overCell.InvokeCellTypeRelatedMethods();
+                
+            StartCoroutine(PutDown());
         }
     }
 
@@ -335,8 +379,14 @@ public class BoxBase : MonoBehaviour
         Vector3 currentRotation = transform.eulerAngles;
 
         currentRotation.y += 90;
-            
-        transform.DORotate(currentRotation, 0.1f).onComplete = () => { isRotating = false;};
+        
+        transform.DORotate(transform.rotation.eulerAngles + Vector3.down * 10, 0.1f).onComplete = () =>
+        {
+            if(overCell != null && overCell.AssociatedBox == this)
+                PlayDrop();
+
+            transform.DORotate(currentRotation, 0.2f).onComplete = () =>{ isRotating = false; };
+        };
     }
 
     public virtual void Reset()
@@ -352,6 +402,45 @@ public class BoxBase : MonoBehaviour
         overCell = null;
         canBeDragged = true;
         isOverCell = false;
+    }
+
+    private IEnumerator PutDown()
+    {
+        isPuttingDown = true;
+        
+        // if(grabSequence.IsActive())
+        //     yield return grabSequence.WaitForCompletion();
+        
+        if(grabSequence.IsActive())
+            grabSequence.Kill();
+        
+        AudioManager.instance.Play("put");
+        
+        Vector3 targetPosition = overCell.transform.position;
+        
+        targetPosition.y += Settings.instance.cellBlockOffset + yDownOffset;
+        
+        if(putSequence.IsActive())
+            putSequence.Kill();
+            
+        putSequence = DOTween.Sequence();
+        
+        putSequence.Append(transform.DOMove(targetPosition, 0.2f)).onComplete = () =>
+        {
+            canBeDragged = true;
+            isPuttingDown = false;
+            PlayDrop();
+        };
+        
+        putSequence.onKill = () =>
+        {
+            canBeDragged = true;
+            isPuttingDown = false;
+        };
+
+        putSequence.Play();
+
+        yield return null;
     }
 
     public bool CanBeDragged

@@ -6,19 +6,28 @@ using Blocks.Helpers;
 using DefaultNamespace;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class ExtrudingBox : BoxBase
 {
     [SerializeField] private float extrudeSpeed = 100;
+    [SerializeField] private VisualEffect appearEffect;
+    [SerializeField] private VisualEffect dropEffect;
     private Scaler[] scalers;
     private bool isExecuting = false;
     private bool forceStop = false;
     
     protected override void Start()
     {
+        dropEffect.Stop();
+        
         id = 2;
 
         scalers = GetComponentsInChildren<Scaler>();
+
+        if (appearEffect != null)
+            appearEffect.Play();
+            
     }
 
     public override void TryActivate(BoxBase touching)
@@ -33,6 +42,17 @@ public class ExtrudingBox : BoxBase
         isExecuting = true;
         transform.DOPunchScale(Vector3.one * 0.1f, 0.2f);
         transform.DOJump(transform.position, 0.2f, 1, 0.2f).onComplete = () => StartCoroutine(Extrude());
+    }
+
+    public override void PlayDrop()
+    {
+        if (dropEffect != null)
+        {
+            if(OverCell != null)
+                dropEffect.SetVector4("Color", OverCell.GetColor());
+            
+            dropEffect.Play();
+        }
     }
 
     private IEnumerator Extrude()

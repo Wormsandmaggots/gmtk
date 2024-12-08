@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using DefaultNamespace;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Grid
         End
     }
     
-    public class Cell : MonoBehaviour
+    public class Cell : MonoBehaviour, IGetColor
     {
         private BoxBase associatedBox;
         private bool isBlocked = false;
@@ -88,6 +89,11 @@ namespace Grid
             Floor f = GetComponentInParent<Floor>();
             
             return f != null ? Convert.ToInt16(GetComponentInParent<Floor>().name) : 0;
+        }
+
+        public Color GetColor()
+        {
+            return material.color;
         }
     }
 }
