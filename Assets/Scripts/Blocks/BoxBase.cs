@@ -61,6 +61,11 @@ public class BoxBase : MonoBehaviour
         
     }
 
+    public virtual void OnBumpEffect()
+    {
+        
+    }
+
     public IEnumerator PlayDropDelayed(float val)
     {
         yield return new WaitForSeconds(val);
@@ -365,7 +370,7 @@ public class BoxBase : MonoBehaviour
             overCell.IsOver(false);
             overCell.InvokeCellTypeRelatedMethods();
                 
-            StartCoroutine(PutDown());
+            PutDown();
         }
     }
 
@@ -404,12 +409,9 @@ public class BoxBase : MonoBehaviour
         isOverCell = false;
     }
 
-    private IEnumerator PutDown()
+    private void PutDown()
     {
         isPuttingDown = true;
-        
-        // if(grabSequence.IsActive())
-        //     yield return grabSequence.WaitForCompletion();
         
         if(grabSequence.IsActive())
             grabSequence.Kill();
@@ -418,7 +420,7 @@ public class BoxBase : MonoBehaviour
         
         Vector3 targetPosition = overCell.transform.position;
         
-        targetPosition.y += Settings.instance.cellBlockOffset + yDownOffset;
+        targetPosition.y += Settings.instance.cellBlockOffset + yDownOffset * (overCell.GetFloor() + 1);
         
         if(putSequence.IsActive())
             putSequence.Kill();
@@ -439,8 +441,6 @@ public class BoxBase : MonoBehaviour
         };
 
         putSequence.Play();
-
-        yield return null;
     }
 
     public bool CanBeDragged
@@ -453,6 +453,11 @@ public class BoxBase : MonoBehaviour
     {
         get => startPos;
         set => startPos = value;
+    }
+
+    public virtual Color GetColor()
+    {
+        return Color.white;
     }
 
     protected Vector3 StartPos1 => startPos;

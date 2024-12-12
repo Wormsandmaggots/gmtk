@@ -48,6 +48,8 @@ namespace Blocks
                 if (box != null)
                 {
                     box.Execute(relatedBox);
+                    relatedBox.BumpedColor = box.GetColor();
+                    relatedBox.OnBumpEffect();
                 }
                 Debug.Log("WITH BLOCK COLLISION");
             }
@@ -60,6 +62,8 @@ namespace Blocks
                 if (box != null)
                 {
                     box.Execute(relatedBox);
+                    relatedBox.BumpedColor = box.GetColor();
+                    relatedBox.OnBumpEffect();
                 }
                 Debug.Log("KNOB COLLISION");
             }
@@ -67,6 +71,10 @@ namespace Blocks
             if (layer == LayerMask.NameToLayer("Line"))
             {
                 relatedScaler.ShouldExtrude = false;
+                var box = other.GetComponentInParent<BoxBase>();
+                
+                relatedBox.BumpedColor = box.GetColor();
+                relatedBox.OnBumpEffect();
                 Debug.Log("LINE COLLISION");
             }
 
