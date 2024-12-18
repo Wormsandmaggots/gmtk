@@ -217,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 5945061666907214165}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -254,13 +254,13 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 0.5, y: 0.5, z: 10.5}
+      - m_Value: {x: 125, y: 125, z: 125}
         m_Name: Transform_scale
         m_Overridden: 1
       - m_Value: {x: 90, y: 0, z: 0}
         m_Name: Transform_angles
         m_Overridden: 1
-      - m_Value: {x: 0, y: 0.2, z: 0}
+      - m_Value: {x: 0, y: -0.5, z: 0}
         m_Name: PlanePosition
         m_Overridden: 1
     m_Vector4f:
@@ -280,7 +280,8 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+      - m_Value: {fileID: -8608599874856852243, guid: 903da4d79755cbb4f80c676d5a05ee87,
+          type: 3}
         m_Name: ParticleMesh
         m_Overridden: 1
     m_Bool:
@@ -400,6 +401,7 @@ MonoBehaviour:
   extrudeSpeed: 100
   appearEffect: {fileID: 5270413602661420372}
   dropEffect: {fileID: 8666007324691521691}
+  bumpEffect: {fileID: 0}
 --- !u!1 &7901838680379380695
 GameObject:
   m_ObjectHideFlags: 0
