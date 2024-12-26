@@ -32,6 +32,8 @@ namespace Grid
             IsOver(false);
         }
 
+        public virtual void PlayEffect(){}
+
         public BoxBase AssociatedBox
         {
             get => associatedBox;

@@ -509,7 +509,7 @@ Transform:
   m_GameObject: {fileID: 2487116521578755839}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.33, z: 2.88}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -555,6 +555,7 @@ MonoBehaviour:
   extrudeSpeed: 100
   appearEffect: {fileID: 930633879875750975}
   dropEffect: {fileID: 4892568031895848568}
+  bumpEffect: {fileID: 0}
 --- !u!1 &3049022854439700183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,6 +1077,8 @@ GameObject:
   - component: {fileID: 824488992418918272}
   - component: {fileID: 4892568031895848568}
   - component: {fileID: 9080477755495158599}
+  - component: {fileID: 5784179817373976384}
+  - component: {fileID: 8467645804608014220}
   m_Layer: 0
   m_Name: BoxFall
   m_TagString: Untagged
@@ -1091,13 +1094,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6038025139057538322}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 120, y: 120, z: 120}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8518092588635591750}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!2083052967 &4892568031895848568
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -1129,14 +1132,17 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 0.5, y: 0.5, z: 0.5}
+      - m_Value: {x: 1, y: 1.0000002, z: 1.0000002}
         m_Name: Transform_scale
         m_Overridden: 1
-      - m_Value: {x: 90, y: 0, z: 0}
+      - m_Value: {x: -1.0517039e-13, y: 0, z: 0}
         m_Name: Transform_angles
         m_Overridden: 1
-      - m_Value: {x: 0, y: 0.2, z: 0}
+      - m_Value: {x: 0, y: -0.5, z: 0}
         m_Name: PlanePosition
+        m_Overridden: 1
+      - m_Value: {x: 0, y: -5.366078e-18, z: 2.4835273e-11}
+        m_Name: Transform_position
         m_Overridden: 1
     m_Vector4f:
       m_Array: []
@@ -1152,7 +1158,8 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+      - m_Value: {fileID: 4605800884245102167, guid: f3c2bd4cfe8bc4841810c84b460fcb75,
+          type: 3}
         m_Name: ParticleMesh
         m_Overridden: 1
     m_Bool:
@@ -1199,6 +1206,38 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5784179817373976384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038025139057538322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdafc37f32b176349b1684c4455b98e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExecuteInEditor: 1
+  m_Bindings:
+  - {fileID: 8467645804608014220}
+  m_VisualEffect: {fileID: 4892568031895848568}
+--- !u!114 &8467645804608014220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038025139057538322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fdfea1f838247c40921a07afedde962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Space: 0
+  m_Property:
+    m_Name: Transform
+  Target: {fileID: 824488992418918272}
 --- !u!1 &6529419698383608520
 GameObject:
   m_ObjectHideFlags: 0

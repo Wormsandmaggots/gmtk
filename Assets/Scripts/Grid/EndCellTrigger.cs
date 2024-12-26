@@ -5,13 +5,15 @@ using Blocks;
 using Blocks.Helpers;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace Grid
 {
     public class EndCellTrigger : MonoBehaviour
     {
         public static List<EndCellTrigger> EndCells = new List<EndCellTrigger>();
-
+        [SerializeField] private VisualEffect effect;
+        
         private void Start()
         {
             EndCells.Add(this);
@@ -25,7 +27,8 @@ namespace Grid
                 {
                     StartCoroutine(DelayTurnOffScaling(other.GetComponent<Knob>().RelatedScaler));
                     AudioManager.instance.Play("dotkEnd");
-
+                    if(effect != null)
+                        effect.Play();
                 }
             }
         }

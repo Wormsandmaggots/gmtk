@@ -201,6 +201,8 @@ GameObject:
   - component: {fileID: 5094286561768908874}
   - component: {fileID: 8666007324691521691}
   - component: {fileID: 260821266590068174}
+  - component: {fileID: 2760899281410676942}
+  - component: {fileID: 3198226340854619963}
   m_Layer: 0
   m_Name: BoxFall
   m_TagString: Untagged
@@ -216,13 +218,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5945061666907214165}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: -0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1928844966990299998}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!2083052967 &8666007324691521691
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -254,14 +256,26 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 125, y: 125, z: 125}
+      - m_Value: {x: 1.0000005, y: 1.0000002, z: 1.0000002}
         m_Name: Transform_scale
         m_Overridden: 1
-      - m_Value: {x: 90, y: 0, z: 0}
+      - m_Value: {x: 0, y: 0, z: 0}
         m_Name: Transform_angles
         m_Overridden: 1
       - m_Value: {x: 0, y: -0.5, z: 0}
         m_Name: PlanePosition
+        m_Overridden: 1
+      - m_Value: {x: 0, y: -1.3100632e-17, z: 7.636845e-11}
+        m_Name: Transform_position
+        m_Overridden: 1
+      - m_Value: {x: -0, y: 0, z: 0}
+        m_Name: ParentTransform_angles
+        m_Overridden: 1
+      - m_Value: {x: 0, y: 0, z: 0}
+        m_Name: ParentTransform_position
+        m_Overridden: 1
+      - m_Value: {x: 10, y: 10, z: 10}
+        m_Name: ParentTransform_scale
         m_Overridden: 1
     m_Vector4f:
       m_Array:
@@ -280,7 +294,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: -8608599874856852243, guid: 903da4d79755cbb4f80c676d5a05ee87,
+      - m_Value: {fileID: -8608599874856852243, guid: 88031fe19fad44d47b1d676b472ee1c7,
           type: 3}
         m_Name: ParticleMesh
         m_Overridden: 1
@@ -328,6 +342,38 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2760899281410676942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5945061666907214165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdafc37f32b176349b1684c4455b98e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExecuteInEditor: 1
+  m_Bindings:
+  - {fileID: 3198226340854619963}
+  m_VisualEffect: {fileID: 8666007324691521691}
+--- !u!114 &3198226340854619963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5945061666907214165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fdfea1f838247c40921a07afedde962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Space: 0
+  m_Property:
+    m_Name: Transform
+  Target: {fileID: 5094286561768908874}
 --- !u!1 &7010463427111268169
 GameObject:
   m_ObjectHideFlags: 0
