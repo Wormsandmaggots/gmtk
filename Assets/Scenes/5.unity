@@ -924,6 +924,7 @@ GameObject:
   - component: {fileID: 191305445}
   - component: {fileID: 191305447}
   - component: {fileID: 191305446}
+  - component: {fileID: 191305448}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -998,6 +999,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191305444}
   m_Mesh: {fileID: 2534964839176971238, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &191305448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191305444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &245352132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,7 +1457,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b3d6495c7d46a8541be17a62db47aaee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 420454969}
   m_SourcePrefab: {fileID: 100100000, guid: b3d6495c7d46a8541be17a62db47aaee, type: 3}
 --- !u!4 &311218670 stripped
 Transform:
@@ -1655,6 +1680,7 @@ GameObject:
   - component: {fileID: 356275341}
   - component: {fileID: 356275343}
   - component: {fileID: 356275342}
+  - component: {fileID: 356275344}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -1729,6 +1755,78 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356275340}
   m_Mesh: {fileID: 2534964839176971238, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &356275344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356275340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
+--- !u!1 &396288143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275,
+    type: 3}
+  m_PrefabInstance: {fileID: 1114262092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &396288147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396288143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
+--- !u!1 &420454968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b3d6495c7d46a8541be17a62db47aaee,
+    type: 3}
+  m_PrefabInstance: {fileID: 311218669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &420454969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420454968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1001 &438109135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2022,6 +2120,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551684774}
   m_Mesh: {fileID: -7886539071754448393, guid: f2f55b92c11c4a54385e2a63fd9dae2e, type: 3}
+--- !u!1 &559964927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6733177361254619370, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275,
+    type: 3}
+  m_PrefabInstance: {fileID: 1114262092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &559964931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559964927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &562065292
 GameObject:
   m_ObjectHideFlags: 0
@@ -2407,6 +2531,7 @@ GameObject:
   - component: {fileID: 773862611}
   - component: {fileID: 773862613}
   - component: {fileID: 773862612}
+  - component: {fileID: 773862614}
   m_Layer: 0
   m_Name: Cylinder.002 (2)
   m_TagString: Untagged
@@ -2481,6 +2606,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773862610}
   m_Mesh: {fileID: 8691780276856062721, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &773862614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773862610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &793939884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2766,7 +2911,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b3d6495c7d46a8541be17a62db47aaee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1796582418}
   m_SourcePrefab: {fileID: 100100000, guid: b3d6495c7d46a8541be17a62db47aaee, type: 3}
 --- !u!4 &818499264 stripped
 Transform:
@@ -3171,6 +3320,7 @@ GameObject:
   - component: {fileID: 874383039}
   - component: {fileID: 874383041}
   - component: {fileID: 874383040}
+  - component: {fileID: 874383042}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -3245,6 +3395,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874383038}
   m_Mesh: {fileID: 2534964839176971238, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &874383042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874383038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &875429230
 GameObject:
   m_ObjectHideFlags: 0
@@ -3706,6 +3876,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9dbe613f90e494bb0e1378c4940b1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &959509714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8513859187771203891, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275,
+    type: 3}
+  m_PrefabInstance: {fileID: 1114262092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &959509718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959509714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &982872488
 GameObject:
   m_ObjectHideFlags: 0
@@ -3717,6 +3913,7 @@ GameObject:
   - component: {fileID: 982872489}
   - component: {fileID: 982872491}
   - component: {fileID: 982872490}
+  - component: {fileID: 982872492}
   m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Untagged
@@ -3791,6 +3988,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982872488}
   m_Mesh: {fileID: 2534964839176971238, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &982872492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982872488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1001 &1022359423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4319,7 +4536,19 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 773862611}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 396288147}
+    - targetCorrespondingSourceObject: {fileID: 8513859187771203891, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 959509718}
+    - targetCorrespondingSourceObject: {fileID: -6733177361254619370, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 559964931}
   m_SourcePrefab: {fileID: 100100000, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
 --- !u!4 &1114262093 stripped
 Transform:
@@ -4490,6 +4719,7 @@ GameObject:
   - component: {fileID: 1159561903}
   - component: {fileID: 1159561905}
   - component: {fileID: 1159561904}
+  - component: {fileID: 1159561906}
   m_Layer: 0
   m_Name: Cylinder.001 (3)
   m_TagString: Untagged
@@ -4564,6 +4794,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159561902}
   m_Mesh: {fileID: -7387706064836869012, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &1159561906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159561902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &1172192206
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,6 +5176,7 @@ GameObject:
   - component: {fileID: 1243440071}
   - component: {fileID: 1243440073}
   - component: {fileID: 1243440072}
+  - component: {fileID: 1243440074}
   m_Layer: 0
   m_Name: Cylinder.001 (1)
   m_TagString: Untagged
@@ -5000,6 +5251,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243440070}
   m_Mesh: {fileID: -7387706064836869012, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &1243440074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243440070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &1285146064
 GameObject:
   m_ObjectHideFlags: 0
@@ -5989,6 +6260,7 @@ GameObject:
   - component: {fileID: 1521838308}
   - component: {fileID: 1521838310}
   - component: {fileID: 1521838309}
+  - component: {fileID: 1521838311}
   m_Layer: 0
   m_Name: Cylinder.001 (2)
   m_TagString: Untagged
@@ -6063,6 +6335,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521838307}
   m_Mesh: {fileID: -7387706064836869012, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &1521838311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521838307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &1579948851
 GameObject:
   m_ObjectHideFlags: 0
@@ -6616,6 +6908,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9dbe613f90e494bb0e1378c4940b1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1796582417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b3d6495c7d46a8541be17a62db47aaee,
+    type: 3}
+  m_PrefabInstance: {fileID: 818499263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1796582418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796582417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &1802927061
 GameObject:
   m_ObjectHideFlags: 0
@@ -7229,6 +7547,7 @@ GameObject:
   - component: {fileID: 1989160644}
   - component: {fileID: 1989160646}
   - component: {fileID: 1989160645}
+  - component: {fileID: 1989160647}
   m_Layer: 0
   m_Name: Cylinder.001 (1)
   m_TagString: Untagged
@@ -7303,6 +7622,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989160643}
   m_Mesh: {fileID: -7387706064836869012, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &1989160647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989160643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &2023854534
 GameObject:
   m_ObjectHideFlags: 0
@@ -7314,6 +7653,7 @@ GameObject:
   - component: {fileID: 2023854535}
   - component: {fileID: 2023854537}
   - component: {fileID: 2023854536}
+  - component: {fileID: 2023854538}
   m_Layer: 0
   m_Name: Cylinder.002 (1)
   m_TagString: Untagged
@@ -7388,6 +7728,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023854534}
   m_Mesh: {fileID: 8691780276856062721, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &2023854538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023854534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &2048736044
 GameObject:
   m_ObjectHideFlags: 0
@@ -7465,6 +7825,7 @@ GameObject:
   - component: {fileID: 2134678000}
   - component: {fileID: 2134678002}
   - component: {fileID: 2134678001}
+  - component: {fileID: 2134678003}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -7539,6 +7900,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134677999}
   m_Mesh: {fileID: 2534964839176971238, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &2134678003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134677999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1001 &702754879399093817
 PrefabInstance:
   m_ObjectHideFlags: 0

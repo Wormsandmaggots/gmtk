@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 109153820}
   - component: {fileID: 109153822}
   - component: {fileID: 109153821}
+  - component: {fileID: 109153823}
   m_Layer: 0
   m_Name: Cylinder.002 (2)
   m_TagString: Untagged
@@ -540,6 +541,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109153819}
   m_Mesh: {fileID: 8691780276856062721, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &109153823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109153819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!4 &153223969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5457445302569795858, guid: 97ceeaf14a56720488dbc18156878fc5,
@@ -3935,7 +3956,7 @@ PrefabInstance:
     - target: {fileID: 4629446356426001759, guid: f066b95408b567a4c8162039bd3193b7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.24
+      value: -1.63
       objectReference: {fileID: 0}
     - target: {fileID: 4629446356426001759, guid: f066b95408b567a4c8162039bd3193b7,
         type: 3}
@@ -4494,6 +4515,7 @@ GameObject:
   - component: {fileID: 1318624093}
   - component: {fileID: 1318624095}
   - component: {fileID: 1318624094}
+  - component: {fileID: 1318624096}
   m_Layer: 0
   m_Name: Cylinder.001 (2)
   m_TagString: Untagged
@@ -4568,6 +4590,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318624092}
   m_Mesh: {fileID: -7387706064836869012, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &1318624096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318624092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &1332674505
 GameObject:
   m_ObjectHideFlags: 0
@@ -5083,6 +5125,7 @@ GameObject:
   - component: {fileID: 1559387460}
   - component: {fileID: 1559387462}
   - component: {fileID: 1559387461}
+  - component: {fileID: 1559387463}
   m_Layer: 0
   m_Name: Cylinder.001 (1)
   m_TagString: Untagged
@@ -5157,6 +5200,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559387459}
   m_Mesh: {fileID: -7387706064836869012, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &1559387463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559387459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &1561478653
 GameObject:
   m_ObjectHideFlags: 0
@@ -5851,6 +5914,7 @@ GameObject:
   - component: {fileID: 1775753098}
   - component: {fileID: 1775753100}
   - component: {fileID: 1775753099}
+  - component: {fileID: 1775753101}
   m_Layer: 0
   m_Name: Cylinder.002 (1)
   m_TagString: Untagged
@@ -5925,6 +5989,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775753097}
   m_Mesh: {fileID: 8691780276856062721, guid: 3f7ae20ad7f6fbe43b46c6b60c93c275, type: 3}
+--- !u!114 &1775753101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775753097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &1785843575
 GameObject:
   m_ObjectHideFlags: 0
