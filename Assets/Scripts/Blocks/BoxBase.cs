@@ -61,6 +61,11 @@ public class BoxBase : MonoBehaviour
         
     }
 
+    public virtual void RotateDrop(Vector3 rotation)
+    {
+        
+    }
+
     public virtual void OnBumpEffect()
     {
         
@@ -387,10 +392,17 @@ public class BoxBase : MonoBehaviour
         
         transform.DORotate(transform.rotation.eulerAngles + Vector3.down * 10, 0.1f).onComplete = () =>
         {
-            if(overCell != null && overCell.AssociatedBox == this)
+            if (overCell != null && overCell.AssociatedBox == this)
+            {
+                RotateDrop(new Vector3(0,90,0));
                 PlayDrop();
+            }
 
-            transform.DORotate(currentRotation, 0.2f).onComplete = () =>{ isRotating = false; };
+            transform.DORotate(currentRotation, 0.2f).onComplete = () =>
+            {
+                RotateDrop(new Vector3(0, -90, 0));
+                isRotating = false;
+            };
         };
     }
 

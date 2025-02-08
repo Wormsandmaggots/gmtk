@@ -63,6 +63,11 @@ public class ExtrudingBox : BoxBase
         }
     }
 
+    public override void RotateDrop(Vector3 rotation)
+    {
+        dropEffect.transform.localEulerAngles += rotation;
+    }
+
     public override void OnBumpEffect()
     {
         if (bumpEffect != null)
