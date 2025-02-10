@@ -42,7 +42,7 @@ public class BoxBase : MonoBehaviour
         
     }
 
-    public virtual void TryActivate(BoxBase touching)
+    protected virtual void TryActivate(BoxBase touching)
     {
         isActive = true;
 
@@ -56,12 +56,12 @@ public class BoxBase : MonoBehaviour
         return id;
     }
 
-    public virtual void PlayDrop()
+    protected virtual void PlayDrop()
     {
         
     }
 
-    public virtual void RotateDrop(Vector3 rotation)
+    protected virtual void RotateDrop(Vector3 rotation)
     {
         
     }
