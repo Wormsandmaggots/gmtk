@@ -38,7 +38,7 @@ public class ExtrudingBox : BoxBase
         }
     }
 
-    public override void TryActivate(BoxBase touching)
+    protected override void TryActivate(BoxBase touching)
     {
         base.TryActivate(touching);
     }
@@ -52,7 +52,7 @@ public class ExtrudingBox : BoxBase
         transform.DOJump(transform.position, 0.2f, 1, 0.2f).onComplete = () => StartCoroutine(Extrude());
     }
 
-    public override void PlayDrop()
+    protected override void PlayDrop()
     {
         if (dropEffect != null)
         {
@@ -61,6 +61,11 @@ public class ExtrudingBox : BoxBase
             
             dropEffect.Play();
         }
+    }
+
+    protected override void RotateDrop(Vector3 rotation)
+    {
+        dropEffect.transform.localEulerAngles += rotation;
     }
 
     public override void OnBumpEffect()

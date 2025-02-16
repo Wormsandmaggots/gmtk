@@ -11,7 +11,7 @@ namespace Blocks
             id = 1;
         }
 
-        public override void TryActivate(BoxBase touching)
+        protected override void TryActivate(BoxBase touching)
         {
             Debug.Log("Bumped into a wall!");
         }
