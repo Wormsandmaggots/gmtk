@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using DefaultNamespace;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Grid
@@ -20,7 +18,7 @@ namespace Grid
         private bool isBlocked = false;
         private Material material;
 
-        private void Start()
+        protected virtual void Start()
         {
             material = GetComponentInChildren<MeshRenderer>()?.materials[1];
             // if (material != null)
@@ -97,5 +95,7 @@ namespace Grid
         {
             return material.color;
         }
+        
+        public virtual void Reset() {}
     }
 }

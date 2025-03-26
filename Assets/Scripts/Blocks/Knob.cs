@@ -7,15 +7,17 @@ using UnityEngine;
 
 namespace Blocks
 {
-    public class Knob : MonoBehaviour
+    public class Knob : MonoBehaviour, IGetColor
     {
         private static float delay = 0.5f;
         
         private Scaler relatedScaler;
         private ExtrudingBox relatedBox;
+        private Color color;
 
         private void Start()
         {
+            color = GetComponent<MeshRenderer>().material.GetColor("_Color");
             relatedBox = GetComponentInParent<ExtrudingBox>();
         }
 
@@ -101,6 +103,11 @@ namespace Blocks
         {
             get => relatedScaler;
             set => relatedScaler = value;
+        }
+
+        public Color GetColor()
+        {
+            return color;
         }
     }
 }

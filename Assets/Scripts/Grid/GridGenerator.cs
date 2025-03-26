@@ -44,7 +44,8 @@ namespace Grid
             
             foreach (var endCell in endCells)
             {
-                EndCellTrigger.EndCells.Add(endCell);    
+                EndCellTrigger.EndCells.Add(endCell);
+                endCell.Reset();
             }
         }
 

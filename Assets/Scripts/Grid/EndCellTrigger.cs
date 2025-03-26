@@ -11,11 +11,13 @@ namespace Grid
 {
     public class EndCellTrigger : MonoBehaviour
     {
+        private static float UPOFFSETMULTIPLIER = 0.65f;
         public static List<EndCellTrigger> EndCells = new List<EndCellTrigger>();
-        [SerializeField] private VisualEffect effect;
+        private EndCell Cell;
         
         private void Start()
         {
+            Cell = GetComponentInParent<EndCell>();
             EndCells.Add(this);
         }
 
@@ -25,10 +27,17 @@ namespace Grid
             {
                 if (BlockResolver.instance.IsResolving)
                 {
-                    StartCoroutine(DelayTurnOffScaling(other.GetComponent<Knob>().RelatedScaler));
+                    Knob s = other.GetComponent<Knob>();
+                    StartCoroutine(DelayTurnOffScaling(s.RelatedScaler));
                     AudioManager.instance.Play("dotkEnd");
-                    if(effect != null)
-                        effect.Play();
+                    Cell.SetFlagActive(true);
+                    Vector3 dest = transform.position;
+                    dest.z -= 0.2f;
+                    if (Math.Abs(s.transform.position.z - Cell.transform.position.z) > 0.001f)
+                        dest.z -= 0.2f;
+                    Cell.SetParticleColor(s.GetColor());
+                    //dest.z -= s.RelatedScaler.Direction.x;
+                    Cell.MoveFlag(dest);
                 }
             }
         }
@@ -45,6 +54,11 @@ namespace Grid
                     
             if(EndCells.Count < 1)
                 WinScreen.instance.ShowWinScreen();
+        }
+
+        public void Reset()
+        {
+            Cell.Reset();
         }
     }
 }

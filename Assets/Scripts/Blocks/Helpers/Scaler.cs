@@ -138,5 +138,7 @@ namespace Blocks.Helpers
             get => queuedForTunrOff;
             set => queuedForTunrOff = value;
         }
+
+        public Transform EndPart => endPart;
     }
 }
