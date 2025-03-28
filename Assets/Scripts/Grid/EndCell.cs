@@ -12,14 +12,22 @@ namespace Grid
         [SerializeField] private Transform FlagPoint;
         [SerializeField] private GameObject FlagObject;
         [SerializeField] private VisualEffect effect;
+        [SerializeField] private VisualEffect dissapearEffect;
+        private EndCellTrigger Trigger;
         private Vector3 FlagStartPosition;
+        private Vector3 FlagStartRotation;
+        private Vector3 FlagStartScale;
 
         protected override void Start()
         {
             base.Start();
             
+            Trigger = GetComponentInChildren<EndCellTrigger>();
+            
             SetFlagActive(false);
             FlagStartPosition = FlagObject.transform.position;
+            FlagStartRotation = FlagObject.transform.eulerAngles;
+            FlagStartScale = FlagObject.transform.localScale;
         }
 
         public override void OnBlockOccupy(BoxBase box)
@@ -59,7 +67,24 @@ namespace Grid
 
         public override void Reset()
         {
-            FlagObject.transform.DOMove(FlagStartPosition, 0.3f).onComplete = () => SetFlagActive(false);
+            if(FlagObject.activeSelf)
+                dissapearEffect.Play();
+            
+            FlagObject.transform.DOJump(FlagObject.transform.position, 0.5f, 1, 0.4f);
+            
+            FlagObject.transform.DOScale(Vector3.zero, 0.4f).onComplete = () =>
+            {
+                FlagObject.transform.position = FlagStartPosition;
+                FlagObject.transform.eulerAngles = FlagStartRotation;
+                FlagObject.transform.localScale = FlagStartScale;
+                
+                SetFlagActive(false);
+            };
+
+            FlagObject.transform.DOShakeRotation(0.7f, 3, 20);
+
+            //FlagObject.transform.DORotate(FlagObject.transform.eulerAngles + Vector3.up * 600, 0.2f);
+            //FlagObject.transform.DOMove(FlagStartPosition, 0.3f).onComplete = () => SetFlagActive(false);
         }
     }
 }

@@ -92,7 +92,7 @@ public class BoxBase : MonoBehaviour
         //     floatSequence.Kill(true);
     }
 
-    private static float dragTimeMoveLimit = 0.1f;
+    private static float dragTimeMoveLimit = 0.05f;
     
     private bool isMouseDown = false;
     private float dragTime;
