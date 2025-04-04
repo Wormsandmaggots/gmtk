@@ -11,7 +11,6 @@ namespace Grid
 {
     public class EndCellTrigger : MonoBehaviour
     {
-        private static float UPOFFSETMULTIPLIER = 0.65f;
         public static List<EndCellTrigger> EndCells = new List<EndCellTrigger>();
         private EndCell Cell;
         

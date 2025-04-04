@@ -34,7 +34,7 @@ namespace DefaultNamespace
         {
             int level = Settings.instance.level + 1;
 
-            if (level > 10)
+            if (level > 10 || level > 4 && Game.GameState == GameState.Tutorial)
             {
                 SceneManager.LoadScene("MainMenu");
                 Settings.instance.level = 0;

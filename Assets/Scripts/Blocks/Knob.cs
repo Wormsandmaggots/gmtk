@@ -38,7 +38,7 @@ namespace Blocks
                     cell.GetFloor() > relatedBox.OverCell.GetFloor())
                 {
                     relatedScaler.ShouldExtrude = false;
-                    Debug.Log("CELL COLLISION");  
+                    //Debug.Log("CELL COLLISION");  
                 }
             }
             
@@ -53,7 +53,7 @@ namespace Blocks
                     relatedBox.BumpedColor = box.GetColor();
                     relatedBox.OnBumpEffect();
                 }
-                Debug.Log("WITH BLOCK COLLISION");
+                //Debug.Log("WITH BLOCK COLLISION");
             }
 
             if (layer == LayerMask.NameToLayer("Knob"))
@@ -67,7 +67,7 @@ namespace Blocks
                     relatedBox.BumpedColor = box.GetColor();
                     relatedBox.OnBumpEffect();
                 }
-                Debug.Log("KNOB COLLISION");
+                //Debug.Log("KNOB COLLISION");
             }
 
             if (layer == LayerMask.NameToLayer("Line"))
@@ -77,13 +77,13 @@ namespace Blocks
                 
                 relatedBox.BumpedColor = box.GetColor();
                 relatedBox.OnBumpEffect();
-                Debug.Log("LINE COLLISION");
+                //Debug.Log("LINE COLLISION");
             }
 
             if (layer == LayerMask.NameToLayer("Wall"))
             {                
                 relatedScaler.ShouldExtrude = false;
-                Debug.Log("WALL COLLISION");
+                //Debug.Log("WALL COLLISION");
             }
         }
 

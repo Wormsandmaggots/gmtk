@@ -382,6 +382,7 @@ public class BoxBase : MonoBehaviour
     private void RotateBlock()
     {
         if (isRotating) return;
+        if (LevelSettings.BlockRotation) return;
         
         isRotating = true;
         

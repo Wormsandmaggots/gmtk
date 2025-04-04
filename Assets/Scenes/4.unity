@@ -8045,6 +8045,172 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982613110}
   m_Mesh: {fileID: -7886539071754448393, guid: f2f55b92c11c4a54385e2a63fd9dae2e, type: 3}
+--- !u!1001 &2078205932
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 917899798272030237, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_text
+      value: Elements with <color=#FFF441>multiple knobs</color> will stretch in
+        <color=#FFF441>many directions</color>
+      objectReference: {fileID: 0}
+    - target: {fileID: 917899798272030237, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 917899798272030237, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089680731215079552, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089680731215079552, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089680731215079552, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262304038988826962, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6352869773409433234, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: m_Name
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556964226130471693, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: tutorialTextPC
+      value: Elements with <color=#FFF441>multiple knobs</color> will stretch in
+        <color=#FFF441>many directions</color>
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556964226130471693, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: tutorialTextSize
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556964226130471693, guid: 51c76c9bf789adb45a155d237421d5d7,
+        type: 3}
+      propertyPath: tutorialTextMobile
+      value: Elements with <color=#FFF441>multiple knobs</color> will stretch in
+        <color=#FFF441>many directions</color>
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 51c76c9bf789adb45a155d237421d5d7, type: 3}
 --- !u!1 &2142086099
 GameObject:
   m_ObjectHideFlags: 0
@@ -8747,3 +8913,4 @@ SceneRoots:
   - {fileID: 1549381783}
   - {fileID: 1838467391}
   - {fileID: 420391965}
+  - {fileID: 2078205932}
