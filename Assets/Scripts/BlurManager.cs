@@ -25,6 +25,7 @@ public class BlurManager : MonoBehaviour
         if (FindAnyObjectByType<Volume>().profile.TryGet(out DepthOfField tmp))
         {
             depthOfFieldStatic = tmp;
+            depthOfFieldStatic.active = false;
         }
         
         blurCamera = Camera.main.transform.GetChild(0).GetComponent<Camera>();
@@ -48,6 +49,7 @@ public class BlurManager : MonoBehaviour
 
     public static void SetBlur(bool value)
     {
+        depthOfFieldStatic.active = value;
         instance.StartCoroutine(LerpFocusDistance(value));
     }
 
@@ -73,10 +75,15 @@ public class BlurManager : MonoBehaviour
             depthOfFieldStatic.focusDistance.value = currentValue;
 
             if (value && currentValue < 0)
+            {
                 yield break;
-            
-            if(!value && currentValue > 20)
+            }
+
+            if (!value && currentValue > 20)
+            {
+                depthOfFieldStatic.active = false;
                 yield break;
+            }
 
             yield return null;
         }
