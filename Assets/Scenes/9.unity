@@ -5672,6 +5672,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: piasek3 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8966639869280009820, guid: bb1e21a586de5474792596cef35c4303,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5935,7 +5940,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &950514097
 Transform:
@@ -6364,6 +6369,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: piasek3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8966639869280009820, guid: bb1e21a586de5474792596cef35c4303,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6442,6 +6452,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: piasek3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966639869280009820, guid: bb1e21a586de5474792596cef35c4303,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6536,6 +6551,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: piasek3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966639869280009820, guid: bb1e21a586de5474792596cef35c4303,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9116,6 +9136,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: piasek3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966639869280009820, guid: bb1e21a586de5474792596cef35c4303,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13575,6 +13600,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: piasek3 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8966639869280009820, guid: bb1e21a586de5474792596cef35c4303,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14018,6 +14048,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839953970115217570, guid: 6a30b04d7d661b947a8ab46b3201fa8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

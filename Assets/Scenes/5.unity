@@ -1883,6 +1883,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: piasek4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1212551225869277468, guid: d1664b3ef131bbe4db6bed709f4be715,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1988348336441607078, guid: d1664b3ef131bbe4db6bed709f4be715,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3173,6 +3178,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: piasek4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1212551225869277468, guid: d1664b3ef131bbe4db6bed709f4be715,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1988348336441607078, guid: d1664b3ef131bbe4db6bed709f4be715,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3957,6 +3967,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: piasek4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212551225869277468, guid: d1664b3ef131bbe4db6bed709f4be715,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1988348336441607078, guid: d1664b3ef131bbe4db6bed709f4be715,
         type: 3}
@@ -7141,7 +7156,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1688651439
 Transform:
