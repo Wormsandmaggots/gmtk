@@ -6699,7 +6699,7 @@ PrefabInstance:
     - target: {fileID: 272737536835587929, guid: f066b95408b567a4c8162039bd3193b7,
         type: 3}
       propertyPath: boxesToSpawn.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 272737536835587929, guid: f066b95408b567a4c8162039bd3193b7,
         type: 3}
@@ -6730,6 +6730,12 @@ PrefabInstance:
       propertyPath: 'boxesToSpawn.Array.data[4]'
       value: 
       objectReference: {fileID: 3238404072912199970, guid: 46f17177d1f24414a9c97aca35b4291f,
+        type: 3}
+    - target: {fileID: 272737536835587929, guid: f066b95408b567a4c8162039bd3193b7,
+        type: 3}
+      propertyPath: 'boxesToSpawn.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8288572482024306627, guid: 7fb74b39929f38e408d25692920ff949,
         type: 3}
     - target: {fileID: 4629446356426001759, guid: f066b95408b567a4c8162039bd3193b7,
         type: 3}
