@@ -25,10 +25,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00045f12942b46c698459096c89274e, type: 3}
   m_Name: hghgh
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   passMaterial: {fileID: 2100000, guid: cca8e59ce1ee26246b5d4a3cc75c216c, type: 2}
-  injectionPoint: 550
-  requirements: 6
+  injectionPoint: 450
+  requirements: 0
   passIndex: 0
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
@@ -98,11 +98,11 @@ MonoBehaviour:
       type: 3}
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
-  - {fileID: -7131495072305660703}
   - {fileID: 259107497780839958}
+  - {fileID: -7131495072305660703}
   - {fileID: 2847188774209401420}
   - {fileID: -8247745458011728299}
-  m_RendererFeatureMap: adc0de57c6d2eee5e1bcc51904d7079d1606de7be58898034c323be71a3f832755965e51341f8a8d
+  m_RendererFeatureMap: adc0de57c6d2eee51606de7be5889803e1bcc51904d7079d4c323be71a3f832755965e51341f8a8d
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -159,8 +159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   passMaterial: {fileID: 2100000, guid: 974f8a46531b2a54b95ce054a822f654, type: 2}
-  injectionPoint: 550
-  requirements: 0
+  injectionPoint: 450
+  requirements: 6
   passIndex: 0
 --- !u!114 &2847188774209401420
 MonoBehaviour:

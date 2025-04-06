@@ -16,10 +16,6 @@ public class ShadowMapCaptureFeature : ScriptableRendererFeature
             {
                 Shader.SetGlobalTexture("_ShadowMap", shadowMap);
             }
-            else
-            {
-                Debug.LogWarning("Main Light Shadow Map is null — URP might be hiding it.");
-            }
         }
 
         public override void RecordRenderGraph(RenderGraph renderGraph, FrameResources frameResources,
