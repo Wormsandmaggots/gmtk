@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
 using DG.Tweening;
 using Grid;
@@ -27,14 +26,23 @@ public class BoxBase : MonoBehaviour
 
     private bool isPuttingDown = false;
 
+    private float r = 0;
+
     protected virtual void Start()
     {
-        
+        r = Random.Range(0.0f, 2 * Mathf.PI);
     }
+    
+    Vector3 v;
 
     private void Update()
     {
+        if (overCell) return;
+        if (isDragged) return;
         
+        v = Mathf.Sin(Time.time + r) * Time.deltaTime * 0.1f * Vector3.up;
+
+        transform.position += v;
     }
 
     public virtual void Execute(BoxBase previous)
@@ -367,6 +375,8 @@ public class BoxBase : MonoBehaviour
                 };
                 s.onKill = () => { canBeDragged = true; };
                 s.Play();
+
+                overCell = null;
                 
                 return;
             }

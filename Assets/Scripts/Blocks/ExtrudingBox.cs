@@ -22,6 +22,7 @@ public class ExtrudingBox : BoxBase
     
     protected override void Start()
     {
+        base.Start();
         dropEffect.Stop();
         
         id = 2;
