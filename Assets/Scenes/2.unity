@@ -3779,10 +3779,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2311858781111327610, guid: 09da631c3273e534d97cf09e53d6cbda,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311858781111327610, guid: 09da631c3273e534d97cf09e53d6cbda,
+        type: 3}
+      propertyPath: m_ShadowAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311858781111327610, guid: 09da631c3273e534d97cf09e53d6cbda,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311858781111327610, guid: 09da631c3273e534d97cf09e53d6cbda,
+        type: 3}
+      propertyPath: m_Shadows.m_Bias
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311858781111327610, guid: 09da631c3273e534d97cf09e53d6cbda,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311858781111327610, guid: 09da631c3273e534d97cf09e53d6cbda,
+        type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311858781111327610, guid: 09da631c3273e534d97cf09e53d6cbda,
+        type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311858781111327610, guid: 09da631c3273e534d97cf09e53d6cbda,
+        type: 3}
+      propertyPath: m_Shadows.m_NormalBias
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5245658231771679940, guid: 09da631c3273e534d97cf09e53d6cbda,
         type: 3}
       propertyPath: m_Name
       value: Directional Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515146576319167573, guid: 09da631c3273e534d97cf09e53d6cbda,
+        type: 3}
+      propertyPath: m_SoftShadowQuality
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6515146576319167573, guid: 09da631c3273e534d97cf09e53d6cbda,
         type: 3}
@@ -6375,10 +6420,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: b3d6495c7d46a8541be17a62db47aaee,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b3d6495c7d46a8541be17a62db47aaee,
         type: 3}
       propertyPath: m_Name
       value: kaktus1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: b3d6495c7d46a8541be17a62db47aaee,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: b3d6495c7d46a8541be17a62db47aaee,
+        type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 7202271454713460447, guid: b3d6495c7d46a8541be17a62db47aaee,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
