@@ -3,6 +3,7 @@ using DefaultNamespace;
 using DG.Tweening;
 using Grid;
 using UnityEngine;
+using GUI = DefaultNamespace.GUI;
 
 public class BoxBase : MonoBehaviour
 {
@@ -110,6 +111,7 @@ public class BoxBase : MonoBehaviour
         if (GridGenerator.block) return;
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
+        if (!GUI.Instance.Hidden) return;
 
         dragTime = 0;
         
@@ -209,6 +211,7 @@ public class BoxBase : MonoBehaviour
         if (GridGenerator.block) return;
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
+        if (!GUI.Instance.Hidden) return;
         if (!isMouseDown) return;
         if (isPuttingDown) return;
         if (!canBeDragged) return;
@@ -321,6 +324,7 @@ public class BoxBase : MonoBehaviour
         if (Tutorial.IsBlocking) return;
         if (BlockResolver.isResolving) return;
         if (!canBeDragged) return;
+        if (!GUI.Instance.Hidden) return;
         
 #if !UNITY_IOS && !UNITY_ANDROID && !UNITY_WEBGL
         if (Input.GetMouseButtonDown(1))
@@ -342,6 +346,7 @@ public class BoxBase : MonoBehaviour
         if (BlockResolver.isResolving) return;
         if (!canBeDragged) return;
         if (isPuttingDown) return;
+        if (!GUI.Instance.Hidden) return;
 
 #if UNITY_IOS || UNITY_ANDROID
         if (dragTime < dragTimeMoveLimit)

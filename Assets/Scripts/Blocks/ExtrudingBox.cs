@@ -13,12 +13,10 @@ public class ExtrudingBox : BoxBase
     [SerializeField] private float extrudeSpeed = 100;
     [SerializeField] private VisualEffect appearEffect;
     [SerializeField] private VisualEffect dropEffect;
-    [SerializeField] private VisualEffect bumpEffect;
     private Scaler[] scalers;
     private bool isExecuting = false;
     private bool forceStop = false;
     private Color originColor;
-    private Color bumpedColor;
     
     protected override void Start()
     {
@@ -32,11 +30,6 @@ public class ExtrudingBox : BoxBase
 
         if (appearEffect != null)
             appearEffect.Play();
-
-        if (bumpEffect != null)
-        {
-            bumpEffect.SetVector4("OriginColor", originColor);
-        }
     }
 
     protected override void TryActivate(BoxBase touching)
@@ -71,11 +64,6 @@ public class ExtrudingBox : BoxBase
 
     public override void OnBumpEffect()
     {
-        if (bumpEffect != null)
-        {
-            bumpEffect.SetVector4("BumpedColor", bumpedColor);
-            bumpEffect.Play();
-        }
     }
 
     private IEnumerator Extrude()
@@ -212,10 +200,4 @@ public class ExtrudingBox : BoxBase
     }
 
     public bool ForceStop1 => forceStop;
-    
-    public Color BumpedColor
-    {
-        get => bumpedColor;
-        set => bumpedColor = value;
-    }
 }

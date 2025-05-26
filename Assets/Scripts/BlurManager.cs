@@ -19,6 +19,8 @@ public class BlurManager : MonoBehaviour
     private static float blurValueStatic;
     private static DepthOfField depthOfFieldStatic;
     
+    private Coroutine blurCoroutine = null;
+    
     void Awake()
     {
         instance = this;
@@ -50,6 +52,7 @@ public class BlurManager : MonoBehaviour
     public static void SetBlur(bool value)
     {
         depthOfFieldStatic.active = value;
+        instance.StopAllCoroutines();
         instance.StartCoroutine(LerpFocusDistance(value));
     }
 

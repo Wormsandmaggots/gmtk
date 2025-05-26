@@ -63,8 +63,8 @@ namespace DefaultNamespace
             if (WinScreen.win) return false;
             if (!BlockResolver.isResolving) return false;
             if (BlockSpawner.isReseting) return false;
-            
-            if(isClicking) return false;
+            if (isClicking) return false;
+            if (!GUI.Instance.Hidden) return false;
 
             return true;
         }

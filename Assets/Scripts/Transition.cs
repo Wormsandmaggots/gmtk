@@ -8,6 +8,8 @@ namespace DefaultNamespace
     {
         private static Animator anim;
         private static Transition instance;
+
+        public static bool loadMainMenu = false;
         
         private void Awake()
         {
@@ -34,10 +36,15 @@ namespace DefaultNamespace
         {
             int level = Settings.instance.level + 1;
 
-            if (level > 10 || level > 4 && Game.GameState == GameState.Tutorial)
+            //hard coded, good enough for now
+            if (loadMainMenu || 
+                level > 10 ||
+                level > 4 && Game.GameState == GameState.Tutorial)
             {
                 SceneManager.LoadScene("MainMenu");
                 Settings.instance.level = 0;
+
+                loadMainMenu = false;
             }
             else
             {

@@ -32,6 +32,10 @@ namespace DefaultNamespace
 
         public void ShowWinScreen()
         {
+            win = true;
+            
+            GUI.Instance.HideHome();
+            
             AudioManager.instance.Play("win");
             button.GetComponentInChildren<Button>().interactable = false;
 
@@ -41,8 +45,8 @@ namespace DefaultNamespace
                 clickable = true;
                 button.GetComponentInChildren<Button>().interactable = true;
             };
+            
             BlurManager.SetBlur(true);
-            win = true;
         }
 
         public void PlayTransition()

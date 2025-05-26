@@ -46,6 +46,8 @@ namespace DefaultNamespace
             startPos = transform.position;
             BlurManager.SetBlur(true);
             IsBlocking = true;
+
+            GUI.Instance.Block = true;
             
             Sequence s = DOTween.Sequence();
             s.AppendInterval(2f);
@@ -65,7 +67,11 @@ namespace DefaultNamespace
                     BlurManager.SetBlur(false);
 
                     var tween = transform.DOMove(startPos, 1f);
-                    tween.onComplete = () => IsBlocking = false;
+                    tween.onComplete = () =>
+                    {
+                        GUI.Instance.Block = false;
+                        IsBlocking = false;
+                    };
                     tween.onUpdate = () =>
                     {
                         duration += Time.deltaTime;

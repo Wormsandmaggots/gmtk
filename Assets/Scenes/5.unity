@@ -9293,6 +9293,11 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3446969988745375473, guid: 25992b9245cf3504cb819cd67fdc593e,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 38b70cc432d2c89499c1241d3d2e6be0, type: 2}
     - target: {fileID: 5741041189068165081, guid: 25992b9245cf3504cb819cd67fdc593e,
         type: 3}
       propertyPath: m_Name

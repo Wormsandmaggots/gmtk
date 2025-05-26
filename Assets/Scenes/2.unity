@@ -1553,16 +1553,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 1.0000005, y: 1.0000001, z: 1.0000001}
+      - m_Value: {x: 1.0000005, y: 1.0000001, z: 1.0000002}
         m_Name: Transform_scale
         m_Overridden: 1
-      - m_Value: {x: -0.0000023120379, y: 0, z: 0}
+      - m_Value: {x: -0.0000010615755, y: 0, z: 0}
         m_Name: Transform_angles
         m_Overridden: 1
       - m_Value: {x: 0, y: -0.5, z: 0}
         m_Name: PlanePosition
         m_Overridden: 1
-      - m_Value: {x: -0.000000006246566, y: -0.000000019240527, z: -0.0000000026047222}
+      - m_Value: {x: -0.000000006246566, y: -0.0000000083621785, z: -0.00000002436142}
         m_Name: Transform_position
         m_Overridden: 1
       - m_Value: {x: -0, y: 0, z: 0}
@@ -2364,6 +2364,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f066b95408b567a4c8162039bd3193b7, type: 3}
+--- !u!1 &835504139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c3e91b1782482f4181654797f8dda5d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1095604927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &835504143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835504139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 120
+  doRotation: 1
+  doScale: 1
+  doJump: 1
 --- !u!1 &896704243
 GameObject:
   m_ObjectHideFlags: 0
@@ -3588,7 +3614,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c3e91b1782482f4181654797f8dda5d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 835504143}
   m_SourcePrefab: {fileID: 100100000, guid: 0c3e91b1782482f4181654797f8dda5d, type: 3}
 --- !u!1001 &1096353337
 PrefabInstance:
@@ -3681,6 +3711,32 @@ MonoBehaviour:
   numJumps: 1
   rotation: {x: 0, y: 0, z: 1}
   rotationPower: 50
+  doRotation: 1
+  doScale: 1
+  doJump: 1
+--- !u!1 &1181264437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1619a8f0ac09a4e49826a58fd785cc6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1711697116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1181264441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181264437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc7c2fb55ac4bdab1f7e4fcbe65782f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 0.5
+  jumpPower: 1.2
+  numJumps: 1
+  rotation: {x: 0, y: 0, z: 1}
+  rotationPower: 150
   doRotation: 1
   doScale: 1
   doJump: 1
@@ -5640,7 +5696,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1619a8f0ac09a4e49826a58fd785cc6b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1181264441}
   m_SourcePrefab: {fileID: 100100000, guid: 1619a8f0ac09a4e49826a58fd785cc6b, type: 3}
 --- !u!1 &1713136847
 GameObject:

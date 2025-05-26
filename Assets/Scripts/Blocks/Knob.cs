@@ -4,6 +4,7 @@ using Blocks.Helpers;
 using DefaultNamespace;
 using Grid;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace Blocks
 {
@@ -11,14 +12,23 @@ namespace Blocks
     {
         private static float delay = 0.5f;
         
+        private VisualEffect bumpEffect;
+        
         private Scaler relatedScaler;
         private ExtrudingBox relatedBox;
         private Color color;
+        private Color bumpedColor;
 
         private void Start()
         {
             color = GetComponent<MeshRenderer>().material.GetColor("_Color");
             relatedBox = GetComponentInParent<ExtrudingBox>();
+            bumpEffect = GetComponentInChildren<VisualEffect>();
+            
+            if (bumpEffect != null)
+            {
+                bumpEffect.SetVector4("OriginColor", color);
+            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -50,7 +60,14 @@ namespace Blocks
                 if (box != null)
                 {
                     box.Execute(relatedBox);
-                    relatedBox.BumpedColor = box.GetColor();
+                    
+                    bumpedColor = box.GetColor();
+                    if (bumpEffect != null)
+                    {
+                        bumpEffect.SetVector4("BumpedColor", bumpedColor);
+                        bumpEffect.Play();
+                    }
+                    
                     relatedBox.OnBumpEffect();
                 }
                 //Debug.Log("WITH BLOCK COLLISION");
@@ -64,7 +81,14 @@ namespace Blocks
                 if (box != null)
                 {
                     box.Execute(relatedBox);
-                    relatedBox.BumpedColor = box.GetColor();
+                    
+                    bumpedColor = box.GetColor();
+                    if (bumpEffect != null)
+                    {
+                        bumpEffect.SetVector4("BumpedColor", bumpedColor);
+                        bumpEffect.Play();
+                    }
+                    
                     relatedBox.OnBumpEffect();
                 }
                 //Debug.Log("KNOB COLLISION");
@@ -75,7 +99,13 @@ namespace Blocks
                 relatedScaler.ShouldExtrude = false;
                 var box = other.GetComponentInParent<BoxBase>();
                 
-                relatedBox.BumpedColor = box.GetColor();
+                bumpedColor = box.GetColor();
+                if (bumpEffect != null)
+                {
+                    bumpEffect.SetVector4("BumpedColor", bumpedColor);
+                    bumpEffect.Play();
+                }
+                
                 relatedBox.OnBumpEffect();
                 //Debug.Log("LINE COLLISION");
             }
