@@ -32,8 +32,10 @@ namespace Grid
                     Cell.SetFlagActive(true);
                     Vector3 dest = transform.position;
                     dest.z -= 0.2f;
-                    if (Math.Abs(s.transform.position.z - Cell.transform.position.z) > 0.001f)
-                        dest.z -= 0.2f;
+                    
+                    float dist = s.transform.position.z - Cell.transform.position.z;
+                    if (Math.Abs(dist) > 0.001f)
+                        dest.z += dist / 5;
                     Cell.SetParticleColor(s.GetColor());
                     //dest.z -= s.RelatedScaler.Direction.x;
                     Cell.MoveFlag(dest);
